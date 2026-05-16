@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Roskourt'Vite – Backyard Ultra · 6 Juin 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ocean: #0a1628;
+    --deep: #06101e;
+    --tide: #1a2f4a;
+    --wave: #0e3d6e;
+    --foam: #c8dff0;
+    --gold: #e8a135;
+    --accent: #e84c35;
+    --white: #f0ede8;
+    --muted: #7a9bb5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--deep);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.35;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(6,16,30,0.95), transparent);
+    backdrop-filter: blur(2px);
+    transition: all 0.3s;
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--foam);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 100%, rgba(14,61,110,0.6) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 20% 20%, rgba(10,22,40,0.8) 0%, transparent 60%),
+      linear-gradient(180deg, var(--deep) 0%, var(--ocean) 40%, var(--wave) 100%);
+  }
+  .wave-lines {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 200px;
+    overflow: hidden;
+  }
+  .wave-lines svg {
+    position: absolute; bottom: 0;
+    width: 200%;
+    animation: wave-move 8s linear infinite;
+  }
+  .wave-lines svg:nth-child(2) { animation-delay: -4s; opacity: 0.4; }
+  @keyframes wave-move {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .hero-content { position: relative; z-index: 2; max-width: 900px; }
+
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    animation: fade-up 0.8s ease both;
+  }
+  .hero-logo {
+    width: min(300px, 55vw);
+    margin-bottom: 1.5rem;
+    filter: invert(1) brightness(0.95) drop-shadow(0 0 30px rgba(200,223,240,0.2));
+    animation: fade-up 0.8s 0.1s ease both;
+  }
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 11vw, 9rem);
+    line-height: 0.9;
+    color: var(--white);
+    animation: fade-up 0.8s 0.2s ease both;
+  }
+  .hero-title .accent { color: var(--gold); }
+  .hero-subtitle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--foam);
+    margin-top: 0.5rem;
+    animation: fade-up 0.8s 0.3s ease both;
+  }
+  .hero-date {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+    color: var(--gold);
+    margin-top: 1.5rem;
+    letter-spacing: 0.1em;
+    animation: fade-up 0.8s 0.4s ease both;
+  }
+  .hero-location {
+    font-size: 0.88rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    margin-top: 0.4rem;
+    animation: fade-up 0.8s 0.45s ease both;
+  }
+
+  /* COUNTDOWN */
+  .countdown-wrapper { margin-top: 3rem; animation: fade-up 0.8s 0.5s ease both; }
+  .countdown-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .countdown { display: flex; gap: 1.5rem; justify-content: center; align-items: flex-end; }
+  .cd-unit { text-align: center; }
+  .cd-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 7vw, 4.8rem);
+    line-height: 1;
+    color: var(--white);
+    display: block;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 0.2em 0.3em;
+    min-width: 78px;
+  }
+  .cd-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.4rem;
+    display: block;
+  }
+  .cd-sep { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--gold); padding-bottom: 0.5rem; opacity: 0.6; }
+
+  .hero-cta {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fade-up 0.8s 0.6s ease both;
+  }
+  .btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.9em 2em;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary { background: var(--gold); color: var(--deep); }
+  .btn-primary:hover { background: #f0b145; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,161,53,0.3); }
+  .btn-secondary { background: transparent; color: var(--foam); border: 1.5px solid rgba(200,223,240,0.4); }
+  .btn-secondary:hover { border-color: var(--foam); color: var(--white); transform: translateY(-2px); }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
+  .section-full { max-width: 100%; padding: 0; }
+  .section-inner { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; }
+
+  .section-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+  .divider { width: 60px; height: 3px; background: var(--gold); margin-bottom: 2.5rem; }
+  .sep-line { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
+
+  /* COURSE */
+  .course-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .course-text p { font-size: 1.05rem; line-height: 1.8; color: var(--foam); margin-bottom: 1.2rem; font-weight: 300; }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 2rem;
+  }
+  .stat { background: rgba(255,255,255,0.03); padding: 1.5rem 1rem; text-align: center; transition: background 0.2s; }
+  .stat:hover { background: rgba(255,255,255,0.07); }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--gold); display: block; }
+  .stat-desc { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 0.3rem; display: block; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(--gold), var(--wave)); }
+  .tl-item { position: relative; margin-bottom: 1.8rem; padding-left: 1rem; }
+  .tl-item::before { content: ''; position: absolute; left: -2rem; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); border: 2px solid var(--deep); }
+  .tl-time { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: var(--gold); display: block; }
+  .tl-desc { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; color: var(--foam); letter-spacing: 0.05em; }
+
+  /* INSCRIPTION */
+  #inscription { background: linear-gradient(135deg, var(--ocean) 0%, var(--tide) 100%); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .inscription-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+
+  .tarif-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+  .tarif-table tr { border-bottom: 1px solid rgba(255,255,255,0.06); transition: background 0.15s; }
+  .tarif-table tr:hover { background: rgba(255,255,255,0.03); }
+  .tarif-table td { padding: 1rem 0.8rem; font-size: 0.95rem; color: var(--foam); }
+  .tarif-table td:first-child { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: 0.05em; }
+  .tarif-table .gratuit { color: var(--gold); font-weight: 600; }
+
+  .inscription-links { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .inscr-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1.5rem; text-decoration: none; transition: all 0.2s; display: flex; align-items: center; gap: 1rem; }
+  .inscr-card:hover { background: rgba(232,161,53,0.08); border-color: rgba(232,161,53,0.3); transform: translateX(4px); }
+  .inscr-icon { font-size: 1.8rem; flex-shrink: 0; }
+  .inscr-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); display: block; }
+  .inscr-sub { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; display: block; }
+  .inscr-arrow { margin-left: auto; color: var(--gold); font-size: 1.2rem; }
+
+  /* REGLEMENT */
+  .regl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+  .regl-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 1.5rem; transition: all 0.2s; }
+  .regl-card:hover { background: rgba(255,255,255,0.06); border-color: rgba(200,223,240,0.15); transform: translateY(-3px); }
+  .regl-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: rgba(232,161,53,0.2); line-height: 1; }
+  .regl-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--foam); margin-bottom: 0.6rem; }
+  .regl-text { font-size: 0.85rem; line-height: 1.7; color: var(--muted); }
+
+  .regl-docs { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 3rem; }
+  .regl-pdf-btn { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); color: var(--foam); padding: 0.9em 1.6em; border-radius: 4px; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.2s; }
+  .regl-pdf-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); }
+
+  /* ASSO */
+  #asso { background: var(--ocean); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .asso-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; }
+  .asso-text p { font-size: 1.05rem; line-height: 1.8; color: var(--foam); margin-bottom: 1.2rem; font-weight: 300; }
+  .asso-logo { display: flex; justify-content: center; align-items: center; }
+  .asso-logo img { width: 100%; max-width: 300px; filter: invert(1) brightness(0.9); opacity: 0.85; }
+
+  /* PRESSE */
+  .press-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+  .press-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 2rem; text-decoration: none; display: block; transition: all 0.25s; position: relative; overflow: hidden; }
+  .press-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--accent)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .press-card:hover { background: rgba(255,255,255,0.06); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+  .press-card:hover::before { transform: scaleX(1); }
+  .press-source { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: block; }
+  .press-headline { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--white); line-height: 1.3; margin-bottom: 0.8rem; }
+  .press-excerpt { font-size: 0.85rem; line-height: 1.7; color: var(--muted); }
+  .press-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.2rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+
+  /* GALERIE */
+  .galerie-placeholder { margin-top: 2rem; border: 2px dashed rgba(255,255,255,0.1); border-radius: 10px; padding: 5rem 2rem; text-align: center; }
+  .galerie-placeholder .gal-icon { font-size: 3rem; margin-bottom: 1rem; display: block; opacity: 0.3; }
+  .galerie-placeholder p { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); opacity: 0.6; }
+
+  /* PARTENAIRES */
+  #partenaires { padding: 4rem 2rem; border-top: 1px solid rgba(255,255,255,0.05); }
+  .partenaires-inner { max-width: 1100px; margin: 0 auto; }
+  .partenaires-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--muted); text-align: center; margin-bottom: 2.5rem; }
+  .partenaires-logos { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 3rem 4rem; }
+  .partenaire-item { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; opacity: 0.5; filter: grayscale(1) brightness(1.4); transition: all 0.3s; }
+  .partenaire-item:hover { opacity: 1; filter: none; }
+  .partenaire-item img { height: 48px; object-fit: contain; max-width: 120px; }
+  .partenaire-nom { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+
+  /* FOOTER */
+  footer { background: var(--deep); border-top: 1px solid rgba(255,255,255,0.06); padding: 3rem 2rem; text-align: center; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.1em; color: var(--white); margin-bottom: 0.3rem; }
+  .footer-logo span { color: var(--gold); }
+  .footer-links { display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap; }
+  .footer-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--foam); }
+  .footer-copy { font-size: 0.78rem; color: rgba(122,155,181,0.45); margin-top: 1rem; }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 0.8rem 1.2rem; }
+    .nav-links { display: none; }
+    .course-grid, .inscription-grid, .asso-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .countdown { gap: 0.6rem; }
+    .cd-num { font-size: 2.2rem; min-width: 56px; }
+    .asso-logo { order: -1; }
+    .asso-logo img { max-width: 200px; }
+    .regl-docs { flex-direction: column; }
+    .hero-cta { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo"><span>La </span>Roskourt<span>'</span>Vite</a>
+  <ul class="nav-links">
+    <li><a href="#course">La Course</a></li>
+    <li><a href="#inscription">Inscription</a></li>
+    <li><a href="#reglement">Règlement</a></li>
+    <li><a href="#asso">L'Asso</a></li>
+    <li><a href="#presse">Presse</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="section-full">
+  <div class="hero-bg"></div>
+  <div class="wave-lines">
+    <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z" fill="rgba(14,61,110,0.25)"/>
+    </svg>
+    <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C180,80 360,10 540,50 C720,90 900,15 1080,55 C1260,95 1350,30 1440,50 L1440,120 L0,120 Z" fill="rgba(14,61,110,0.15)"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Association La Roskourt'Vite · Roscoff, Finistère</div>
+    <img src="Sans_titre_3_20260303171613.jpeg" alt="Logo La Roskourt'Vite Backyard Ultra" class="hero-logo">
+    <div class="hero-title"><span class="accent">La </span>Roskourt<span class="accent">'</span>Vite</div>
+    <div class="hero-subtitle">Backyard Ultra · 1ère Édition</div>
+    <div class="hero-date">Samedi 6 Juin 2026</div>
+    <div class="hero-location">📍 Parking du Laber – Bâtiment Marie Goldsmith, Station biologique de Roscoff</div>
+
+    <div class="countdown-wrapper">
+      <div class="countdown-label">Compte à rebours jusqu'au départ</div>
+      <div class="countdown">
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-days">--</span>
+          <span class="cd-label">Jours</span>
+        </div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-hours">--</span>
+          <span class="cd-label">Heures</span>
+        </div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-mins">--</span>
+          <span class="cd-label">Minutes</span>
+        </div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-secs">--</span>
+          <span class="cd-label">Secondes</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="https://www.klikego.com/inscription/la-roskourtvite-backyard-2026/running-course-a-pied/1776833750417-1" target="_blank" class="btn btn-primary">S'inscrire sur Klikego</a>
+      <a href="https://forms.gle/1UUP3yR7Vb8TqprQ9" target="_blank" class="btn btn-secondary">S'inscrire via Google Forms</a>
+    </div>
+  </div>
+</section>
+
+<div class="sep-line"></div>
+
+<!-- LA COURSE -->
+<section id="course">
+  <div class="section-eyebrow reveal">L'Épreuve</div>
+  <h2 class="section-title reveal">Le Backyard Ultra</h2>
+  <div class="divider reveal"></div>
+
+  <div class="course-grid">
+    <div class="course-text reveal">
+      <p>Le <strong>Backyard Ultra</strong> est un format d'endurance né aux États-Unis : pas de distance fixe, pas de classement par temps — seulement la volonté de tenir plus longtemps que les autres.</p>
+      <p>Toutes les heures, un départ est lancé. Les coureurs doivent boucler un tour de <strong>6,8 km</strong> et se réaligner sur la ligne de départ avant l'heure suivante. Qui manque le départ est éliminé.</p>
+      <p>La course continue jusqu'à ce qu'il ne reste qu'<strong>un seul participant</strong>. Pour être déclaré vainqueur, il doit effectuer une boucle de plus que le dernier adversaire à avoir abandonné.</p>
+      <p>L'épreuve peut durer jusqu'à <strong>24 heures</strong>. Ce n'est pas une course contre la montre — c'est une course contre soi-même.</p>
+
+      <div class="stat-row">
+        <div class="stat">
+          <span class="stat-num">6,8</span>
+          <span class="stat-desc">km / boucle</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">1h</span>
+          <span class="stat-desc">par tour</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">24h</span>
+          <span class="stat-desc">max</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="section-eyebrow" style="margin-bottom:1.5rem">Programme du 6 juin</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="tl-time">7h30</span>
+          <span class="tl-desc">Accueil des participants – Parking du Laber</span>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">8h45</span>
+          <span class="tl-desc">Briefing obligatoire (sous peine de refus de départ)</span>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">9h00</span>
+          <span class="tl-desc">⚡ Départ de la 1ère boucle</span>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">17h</span>
+          <span class="tl-desc">Animation musicale au Château du Laber</span>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">17h</span>
+          <span class="tl-desc">Initiation à la danse bretonne</span>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">Toute la journée</span>
+          <span class="tl-desc">Restauration sur place – foodtruck & buvette</span>
+        </div>
+      </div>
+
+      <div style="margin-top:2rem; padding:1.2rem; background:rgba(232,161,53,0.08); border-left:3px solid var(--gold); border-radius:0 6px 6px 0;">
+        <p style="font-size:0.9rem; color:var(--foam); line-height:1.6;">
+          <strong style="color:var(--gold)">Parcours :</strong> Boucle du parking du Château du Laber jusqu'à la pointe de Perharidy — sentiers côtiers et chemins communaux avec vue sur la mer.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep-line"></div>
+
+<!-- INSCRIPTION -->
+<section id="inscription" class="section-full">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Participer</div>
+    <h2 class="section-title reveal">Inscription</h2>
+    <div class="divider reveal"></div>
+
+    <div class="inscription-grid">
+      <div class="reveal">
+        <p style="font-size:1rem; line-height:1.8; color:var(--foam); margin-bottom:1.5rem; font-weight:300;">
+          La course est ouverte à tous, quel que soit le niveau. Aucun certificat médical n'est demandé. Le paiement se fait <strong>sur place le 6 juin en espèces ou chèque</strong>, ou directement en ligne via Klikego.
+        </p>
+        <table class="tarif-table">
+          <tr>
+            <td>Étudiants</td>
+            <td class="gratuit">Gratuit</td>
+          </tr>
+          <tr>
+            <td>Bénévoles</td>
+            <td class="gratuit">Gratuit <em style="font-size:0.8rem; color:var(--muted)">(inscription obligatoire via Google Forms)</em></td>
+          </tr>
+          <tr>
+            <td>Personnel de la Station Biologique de Roscoff</td>
+            <td>3 €</td>
+          </tr>
+          <tr>
+            <td>Autres (amis, famille…)</td>
+            <td>5 €</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="reveal">
+        <p style="font-family:'Barlow Condensed'; font-size:0.78rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--muted); margin-bottom:1rem;">Choisissez votre mode d'inscription</p>
+        <div class="inscription-links">
+          <a href="https://www.klikego.com/inscription/la-roskourtvite-backyard-2026/running-course-a-pied/1776833750417-1" target="_blank" class="inscr-card">
+            <span class="inscr-icon">🏃</span>
+            <div>
+              <span class="inscr-title">Klikego</span>
+              <span class="inscr-sub">Inscription &amp; paiement en ligne sécurisé</span>
+            </div>
+            <span class="inscr-arrow">→</span>
+          </a>
+          <a href="https://forms.gle/1UUP3yR7Vb8TqprQ9" target="_blank" class="inscr-card">
+            <span class="inscr-icon">📋</span>
+            <div>
+              <span class="inscr-title">Google Forms</span>
+              <span class="inscr-sub">Inscription bénévoles &amp; alternative</span>
+            </div>
+            <span class="inscr-arrow">→</span>
+          </a>
+        </div>
+        <div style="margin-top:1.5rem; padding:1rem 1.2rem; background:rgba(255,255,255,0.03); border-radius:6px;">
+          <p style="font-size:0.82rem; color:var(--muted); line-height:1.7;">
+            📍 <strong style="color:var(--foam)">Lieu :</strong> Bâtiment Marie Goldsmith – Station biologique de Roscoff, 99 rue de Roc'h Klehure, 29680 Roscoff
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep-line"></div>
+
+<!-- RÈGLEMENT -->
+<section id="reglement">
+  <div class="section-eyebrow reveal">Officiel</div>
+  <h2 class="section-title reveal">Règlement</h2>
+  <div class="divider reveal"></div>
+
+  <div class="regl-grid">
+    <div class="regl-card reveal">
+      <div class="regl-num">01</div>
+      <div class="regl-title">Format</div>
+      <p class="regl-text">Une boucle de 6,8 km à compléter toutes les heures. Départ à 9h00, puis à chaque heure pleine. Manquer un départ = abandon immédiat.</p>
+    </div>
+    <div class="regl-card reveal">
+      <div class="regl-num">02</div>
+      <div class="regl-title">Victoire</div>
+      <p class="regl-text">Le vainqueur est le dernier participant en course, ayant effectué une boucle de plus que le dernier adversaire ayant abandonné. Récompenses pour le top 3 hommes et top 3 femmes.</p>
+    </div>
+    <div class="regl-card reveal">
+      <div class="regl-num">03</div>
+      <div class="regl-title">Durée maximale</div>
+      <p class="regl-text">L'épreuve peut durer jusqu'à 24 heures. En cas d'égalité à l'issue du temps limite, le classement est établi selon l'ordre d'arrivée lors de la dernière boucle.</p>
+    </div>
+    <div class="regl-card reveal">
+      <div class="regl-num">04</div>
+      <div class="regl-title">Course nocturne</div>
+      <p class="regl-text">Lampe frontale obligatoire pour toute boucle en faible luminosité. Port d'éléments réfléchissants fortement recommandé.</p>
+    </div>
+    <div class="regl-card reveal">
+      <div class="regl-num">05</div>
+      <div class="regl-title">Sécurité</div>
+      <p class="regl-text">Un plan de sécurité complet est mis en place : base de vie centrale accessible après chaque boucle, bénévoles identifiés en permanence, premiers secours et matériel médical sur place.</p>
+    </div>
+    <div class="regl-card reveal">
+      <div class="regl-num">06</div>
+      <div class="regl-title">Respect</div>
+      <p class="regl-text">Environnement naturel sensible : aucun déchet sur le parcours, respect de la faune et de la flore. Tout comportement dangereux entraîne l'exclusion immédiate.</p>
+    </div>
+  </div>
+
+  <div class="regl-docs reveal">
+    <a href="Re_glement_La_ROSKOURT_VITE_Version_mars_2026.pdf" target="_blank" class="regl-pdf-btn">
+      📄 Règlement complet (PDF)
+    </a>
+    <a href="autorisation_parentale.pdf" target="_blank" class="regl-pdf-btn">
+      📄 Autorisation parentale (PDF)
+    </a>
+    <a href="fiche_acceptation_reglement.pdf" target="_blank" class="regl-pdf-btn">
+      📄 Fiche d'acceptation du règlement (PDF)
+    </a>
+  </div>
+</section>
+
+<div class="sep-line"></div>
+
+<!-- L'ASSO -->
+<section id="asso" class="section-full">
+  <div class="section-inner">
+    <div class="asso-grid">
+      <div class="reveal">
+        <div class="section-eyebrow">Qui sommes-nous ?</div>
+        <h2 class="section-title"><span style="color:var(--gold)">La </span>Roskourt<span style="color:var(--gold)">'</span>Vite</h2>
+        <div class="divider"></div>
+        <div class="asso-text">
+          <p>Nous sommes des étudiants en licence <strong>BIO-MAD</strong> (Biologie, Modélisation et Analyse de Données) à la Station biologique de Roscoff — CNRS / Sorbonne Université. L'association a été fondée en début d'année 2026 : toute jeune, mais portée par une vraie envie de faire.</p>
+          <p>Notre terrain de jeu, c'est Roscoff et sa côte. Notre conviction, c'est que le sport — la course à pied en particulier — n'a pas besoin de grand-chose pour exister. Juste un territoire et des gens qui ont envie de bouger ensemble. On a la chance d'être ici, autant s'en servir.</p>
+          <p>La Roskourt'Vite, c'est ça : créer des événements qui rassemblent, qui font bouger, qui ancrent une communauté dans son environnement. Une première édition, et déjà l'envie de recommencer chaque année.</p>
+          <p><em style="color:var(--muted); font-size:0.9rem;">« Ce projet vise à faire vivre le sport localement. »<br>— Les organisateurs de la Roskourt'Vite, Le Télégramme, 12 mai 2026</em></p>
+        </div>
+      </div>
+      <div class="asso-logo reveal">
+        <img src="Sans_titre_3_20260303171613.jpeg" alt="Logo Association La Roskourt'Vite">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep-line"></div>
+
+<!-- PRESSE -->
+<section id="presse">
+  <div class="section-eyebrow reveal">Ils en parlent</div>
+  <h2 class="section-title reveal">Revue de Presse</h2>
+  <div class="divider reveal"></div>
+
+  <div class="press-grid">
+    <a href="https://www.letelegramme.fr/finistere/roscoff-29680/qui-veut-participer-a-la-la-roskourtvite-le-6-juin-entre-le-laber-et-perharidy-a-roscoff-7041393.php" target="_blank" class="press-card reveal">
+      <span class="press-source">Le Télégramme · 12 mai 2026</span>
+      <div class="press-headline">Ces étudiants lancent leur propre course d'endurance</div>
+      <p class="press-excerpt">Trois étudiants de la Station biologique de Roscoff lancent une nouvelle épreuve sportive inédite dans la commune : la Roskourt'Vite, un Backyard Ultra le 6 juin entre le Laber et Perharidy.</p>
+      <span class="press-link">Lire l'article →</span>
+    </a>
+    <a href="https://www.ouest-france.fr/france/bretagne/roscoff/roscoff-ou-et-comment-participer-a-la-roskourtvite-le-samedi-6-juin-35733148-4a23-11f1-8d14-8d13dcb22116" target="_blank" class="press-card reveal">
+      <span class="press-source">Ouest-France · Mai 2026</span>
+      <div class="press-headline">Roscoff : où et comment participer à la Roskourt'Vite le samedi 6 juin ?</div>
+      <p class="press-excerpt">Format backyard ultra, boucle de 6,8 km entre le Laber et Perharidy, tarifs accessibles, animations tout au long de la journée… tout ce qu'il faut savoir pour participer.</p>
+      <span class="press-link">Lire l'article →</span>
+    </a>
+  </div>
+</section>
+
+<div class="sep-line"></div>
+
+<!-- GALERIE -->
+<section id="galerie">
+  <div class="section-eyebrow reveal">Souvenirs</div>
+  <h2 class="section-title reveal">Galerie</h2>
+  <div class="divider reveal"></div>
+  <div class="galerie-placeholder reveal">
+    <span class="gal-icon">📷</span>
+    <p>Les photos de la 1ère édition arrivent bientôt</p>
+  </div>
+</section>
+
+<div class="sep-line"></div>
+
+<!-- PARTENAIRES -->
+<section id="partenaires" class="section-full">
+  <div class="partenaires-inner">
+    <div class="partenaires-label">Nos partenaires et soutiens</div>
+    <div class="partenaires-logos">
+      <!-- Upload les logos sur GitHub avec ces noms de fichiers, ou remplace les noms -->
+      <div class="partenaire-item">
+        <img src="logo_roscoff.png" alt="Ville de Roscoff" onerror="this.style.display='none'">
+        <span class="partenaire-nom">Ville de Roscoff</span>
+      </div>
+      <div class="partenaire-item">
+        <img src="logo_sorbonne.png" alt="Sorbonne Université" onerror="this.style.display='none'">
+        <span class="partenaire-nom">Sorbonne Université</span>
+      </div>
+      <div class="partenaire-item">
+        <img src="logo_sbr.png" alt="Station Biologique de Roscoff" onerror="this.style.display='none'">
+        <span class="partenaire-nom">Station Biologique de Roscoff</span>
+      </div>
+      <div class="partenaire-item">
+        <img src="logo_cvec.png" alt="CVEC" onerror="this.style.display='none'">
+        <span class="partenaire-nom">CVEC</span>
+      </div>
+      <div class="partenaire-item">
+        <img src="logo_raidlight.png" alt="Raidlight" onerror="this.style.display='none'">
+        <span class="partenaire-nom">Raidlight</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span>La </span>Roskourt<span>'</span>Vite</div>
+  <p style="font-size:0.85rem; color:var(--muted); margin-top:0.3rem;">Association étudiante · Station biologique de Roscoff · 2026</p>
+  <div class="footer-links">
+    <a href="#course">La Course</a>
+    <a href="#inscription">Inscription</a>
+    <a href="#reglement">Règlement</a>
+    <a href="#asso">L'Asso</a>
+    <a href="#presse">Presse</a>
+    <a href="#galerie">Galerie</a>
+  </div>
+  <div class="footer-copy">© 2026 Association La Roskourt'Vite – Tous droits réservés</div>
+</footer>
+
+<script>
+  // COUNTDOWN
+  function updateCountdown() {
+    const target = new Date('2026-06-06T09:00:00');
+    const now = new Date();
+    const diff = target - now;
+    if (diff <= 0) {
+      ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => document.getElementById(id).textContent = '00');
+      return;
+    }
+    const days  = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins  = Math.floor((diff % 3600000) / 60000);
+    const secs  = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent  = String(days).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // SCROLL REVEAL
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+  );
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // NAV scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      nav.style.background = 'rgba(6,16,30,0.97)';
+      nav.style.backdropFilter = 'blur(8px)';
+      nav.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+    } else {
+      nav.style.background = 'linear-gradient(to bottom, rgba(6,16,30,0.95), transparent)';
+      nav.style.backdropFilter = 'blur(2px)';
+      nav.style.borderBottom = 'none';
+    }
+  });
+</script>
+</body>
+</html>
