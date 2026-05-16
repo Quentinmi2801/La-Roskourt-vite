@@ -168,7 +168,6 @@
   .asso-logo img {
     width: 100%;
     max-width: 300px;
-    filter: brightness(0) invert(1);
     opacity: 0.9;
   }
 
@@ -189,7 +188,7 @@
   .galerie-placeholder p { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
 
   /* PARTENAIRES — fond plus clair, logos visibles */
-  #partenaires { padding: 5rem 2rem; border-top: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.03); }
+  #partenaires { padding: 5rem 2rem; border-top: 1px solid rgba(255,255,255,0.07); background: #f0ede8; }
   .partenaires-inner { max-width: 1100px; margin: 0 auto; }
   .partenaires-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--muted); text-align: center; margin-bottom: 3rem; }
   .partenaires-logos { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 3rem 4rem; }
@@ -199,8 +198,7 @@
     object-fit: contain;
     max-width: 130px;
     /* logos colorés sur fond sombre : on les rend blancs */
-    filter: brightness(0) invert(1);
-    opacity: 0.65;
+    opacity: 0.1;
     transition: all 0.3s;
   }
   .partenaire-item:hover img { opacity: 1; filter: none; }
