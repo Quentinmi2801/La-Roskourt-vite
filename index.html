@@ -348,6 +348,8 @@
   </div>
   <button class="nav-cta" onclick="document.getElementById('inscription-modal').classList.add('open')">S'inscrire</button>
   <button class="nav-mobile-menu" onclick="toggleMobileNav()"><span></span><span></span><span></span></button>
+  <div id="google_translate_element" style="position:absolute;right:5rem;top:50%;transform:translateY(-50%);"></div>
+
 </nav>
 
 <div class="mobile-nav" id="mobile-nav">
@@ -603,9 +605,8 @@
       <div class="section-eyebrow">L'Équipe</div>
       <h2 class="section-title">Qui on est</h2>
       <div class="divider"></div>
-      <div class="team-photo-wrap">
-        <img src="IMG_7708.jpeg" alt="L'équipe de la Roskourt'Vite" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="team-photo-placeholder"><span>📸</span><p>Photo de l'équipe à venir</p></div>
+      <div class="team-photo-wrap" style="display:block;">
+        <img src="photo_equipe.jpg" alt="L'équipe de la Roskourt'Vite" style="width:100%;height:100%;object-fit:cover;display:block;">
       </div>
       <p class="team-caption">L'équipe organisatrice — Station biologique de Roscoff, 2026</p>
     </div>
@@ -975,5 +976,16 @@
     canvas.addEventListener('touchend', hideCursor);
   }
 </script>
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'fr',
+    includedLanguages: 'en,de,es,it,nl,pt',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
