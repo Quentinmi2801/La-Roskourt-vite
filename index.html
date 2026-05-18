@@ -348,7 +348,6 @@
   </div>
   <button class="nav-cta" onclick="document.getElementById('inscription-modal').classList.add('open')">S'inscrire</button>
   <button class="nav-mobile-menu" onclick="toggleMobileNav()"><span></span><span></span><span></span></button>
-  <div id="google_translate_element" style="position:absolute;right:9rem;top:50%;transform:translateY(-50%);font-size:0.75rem;"></div>
 
 </nav>
 
@@ -976,16 +975,5 @@
     canvas.addEventListener('touchend', hideCursor);
   }
 </script>
-<script>
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'fr',
-    includedLanguages: 'en,de,es,it,nl,pt',
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-    autoDisplay: false
-  }, 'google_translate_element');
-}
-</script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
