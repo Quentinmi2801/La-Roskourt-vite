@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="zy2EJxFOhu2GT6xmMxz0tBNRppTgI--_c6F6bBoJ9fg" />
-<meta name="description" content="La Roskourt'Vite — Association sportive étudiante à Roscoff. Backyard Ultra, running club, événements ouverts à tous. Prochaine édition juin 2027.">
+<meta name="description" content="La Roskourt'Vite, association sportive étudiante à Roscoff. Backyard Ultra, running club, événements ouverts à tous. Prochaine édition juin 2027.">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="La Roskourt'Vite — Association sportive · Roscoff">
+<meta property="og:title" content="La Roskourt'Vite, association sportive · Roscoff">
 <meta property="og:description" content="Association sportive étudiante à Roscoff. Backyard Ultra, running club. Prochaine édition juin 2027.">
-<meta property="og:image" content="https://roskourtvite.fr/logo_roskourtvite.jpeg">
+<meta property="og:image" content="https://roskourtvite.fr/logo_roskourtvite.png">
 <meta property="og:url" content="https://roskourtvite.fr">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
-<title>La Roskourt'Vite — Association sportive · Roscoff</title>
-<link rel="icon" type="image/jpeg" href="logo_roskourtvite.jpeg">
+<title>La Roskourt'Vite, association sportive · Roscoff</title>
+<link rel="icon" type="image/png" href="logo_roskourtvite.png">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,33 +25,19 @@ html { scroll-behavior:smooth; }
 body { font-family:'Source Sans 3', sans-serif; background:#f7f5f1; color:#1c1c2e; line-height:1.65; overflow-x:hidden; }
 
 :root {
-  --sand: #f7f5f1;
-  --cream: #edeae3;
-  --linen: #e4e0d8;
-  --text: #1c1c2e;
-  --text-muted: #636378;
-  --gold: #b87d2e;
-  --gold-soft: #d4a055;
-  --blue: #1d3557;
-  --blue-mid: #2a5082;
-  --blue-pale: #e8f0f8;
-  --border: #d8d4cb;
-  --white: #ffffff;
+  --sand: #f7f5f1; --cream: #edeae3; --linen: #e4e0d8;
+  --text: #1c1c2e; --text-muted: #636378;
+  --gold: #b87d2e; --gold-soft: #d4a055;
+  --blue: #1d3557; --blue-mid: #2a5082; --blue-pale: #e8f0f8;
+  --border: #d8d4cb; --white: #ffffff;
   --shadow-sm: 0 1px 8px rgba(28,28,46,0.06);
   --shadow: 0 3px 20px rgba(28,28,46,0.09);
 }
 
-/* ── SKIP ── */
 .skip { position:absolute; top:-100px; left:1rem; z-index:9999; background:var(--gold); color:#fff; padding:0.5rem 1rem; border-radius:4px; font-weight:600; text-decoration:none; font-size:0.9rem; }
 .skip:focus { top:1rem; }
 
-/* ── COOKIE ── */
-#cookie-bar {
-  display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999;
-  background:var(--blue); color:#fff; padding:1.1rem 1.5rem;
-  gap:1.25rem; align-items:center; flex-wrap:wrap;
-  box-shadow:0 -2px 16px rgba(0,0,0,0.12);
-}
+#cookie-bar { display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999; background:var(--blue); color:#fff; padding:1.1rem 1.5rem; gap:1.25rem; align-items:center; flex-wrap:wrap; box-shadow:0 -2px 16px rgba(0,0,0,0.12); }
 #cookie-bar p { font-size:0.87rem; line-height:1.6; flex:1; min-width:180px; }
 #cookie-bar a { color:var(--gold-soft); text-decoration:underline; }
 .ck-btns { display:flex; gap:0.6rem; flex-shrink:0; }
@@ -61,26 +47,14 @@ body { font-family:'Source Sans 3', sans-serif; background:#f7f5f1; color:#1c1c2
 .ck-btn.no { background:transparent; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3); }
 .ck-btn.no:hover { background:rgba(255,255,255,0.08); }
 
-/* ── NAV ── */
-nav {
-  position:fixed; top:0; left:0; right:0; z-index:200;
-  background:rgba(247,245,241,0.96); backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--border);
-  height:66px; display:flex; align-items:center;
-  padding:0 2rem; justify-content:space-between;
-}
+nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(247,245,241,0.96); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); height:66px; display:flex; align-items:center; padding:0 2rem; justify-content:space-between; }
 .nav-logo { display:flex; align-items:center; gap:0.7rem; text-decoration:none; }
-.nav-logo img { height:36px; width:auto; }
+.nav-logo img { height:44px; width:auto; display:block; }
 .nav-logo-name { font-family:'Playfair Display', serif; font-size:1.05rem; font-weight:700; color:var(--blue); line-height:1.1; }
 .nav-logo-name em { color:var(--gold); font-style:normal; }
 .nav-logo-sub { font-size:0.6rem; font-weight:400; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; display:block; margin-top:1px; }
 .nav-links { display:flex; align-items:center; gap:0.15rem; height:100%; }
-.nav-btn {
-  font-size:0.88rem; font-weight:500; color:var(--text-muted);
-  background:none; border:none; cursor:pointer;
-  padding:0.45rem 0.85rem; border-radius:5px;
-  transition:all 0.18s; white-space:nowrap; font-family:inherit;
-}
+.nav-btn { font-size:0.88rem; font-weight:500; color:var(--text-muted); background:none; border:none; cursor:pointer; padding:0.45rem 0.85rem; border-radius:5px; transition:all 0.18s; white-space:nowrap; font-family:inherit; }
 .nav-btn:hover { color:var(--blue); background:var(--cream); }
 .nav-btn.active { color:var(--blue); font-weight:600; }
 .burger { display:none; background:none; border:none; cursor:pointer; padding:0.5rem; }
@@ -90,22 +64,18 @@ nav {
 .mob-btn { font-family:inherit; font-size:0.97rem; font-weight:500; color:var(--text-muted); background:none; border:none; cursor:pointer; padding:0.95rem 2rem; text-align:left; transition:all 0.15s; }
 .mob-btn:hover, .mob-btn.active { color:var(--blue); background:var(--cream); }
 
-/* ── PAGES ── */
 .page { display:none; padding-top:66px; min-height:100vh; }
 .page.active { display:block; }
 
-/* ── HERO ── */
 .hero { background:var(--blue); padding:5rem 2rem 4rem; text-align:center; position:relative; overflow:hidden; }
 .hero::after { content:''; position:absolute; bottom:0; left:0; right:0; height:80px; background:linear-gradient(to bottom, transparent, var(--sand)); pointer-events:none; }
 .hero-inner { position:relative; z-index:1; max-width:700px; margin:0 auto; }
-.hero-logo { width:min(110px, 28vw); margin-bottom:1.75rem; filter:brightness(0) invert(1) opacity(0.92); }
+.hero-logo { width:min(150px, 34vw); margin-bottom:1.5rem; display:block; margin-left:auto; margin-right:auto; }
 .hero-eyebrow { font-size:0.75rem; letter-spacing:0.38em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:0.9rem; }
 .hero-title { font-family:'Playfair Display', serif; font-size:clamp(2.2rem, 7vw, 4.2rem); font-weight:900; color:#fff; line-height:1.06; }
 .hero-title .gold { color:var(--gold-soft); }
 .hero-sub { font-size:1rem; color:rgba(255,255,255,0.65); margin:0.85rem 0 2.5rem; font-weight:300; letter-spacing:0.03em; }
 
-/* COMPTE À REBOURS */
-.countdown-section { margin-bottom:0; }
 .cd-label { font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:0.9rem; }
 .cd { display:flex; gap:0.6rem; justify-content:center; align-items:flex-end; flex-wrap:wrap; }
 .cd-unit { text-align:center; }
@@ -114,7 +84,6 @@ nav {
 .cd-sep { font-family:'Playfair Display', serif; font-size:clamp(1.6rem, 4vw, 2.4rem); color:var(--gold-soft); padding-bottom:0.45rem; opacity:0.45; }
 .hero-cta { margin-top:2.25rem; display:flex; gap:0.85rem; justify-content:center; flex-wrap:wrap; }
 
-/* BTNS */
 .btn { font-family:inherit; font-size:0.9rem; font-weight:600; padding:0.75em 1.7em; border-radius:5px; border:none; cursor:pointer; text-decoration:none; display:inline-block; transition:all 0.18s; letter-spacing:0.01em; }
 .btn-gold { background:var(--gold); color:#fff; }
 .btn-gold:hover { background:var(--gold-soft); transform:translateY(-1px); box-shadow:0 4px 14px rgba(184,125,46,0.3); }
@@ -126,36 +95,27 @@ nav {
 .btn-outline:hover { background:var(--blue); color:#fff; }
 .btn-sm { padding:0.55em 1.1em; font-size:0.84rem; }
 
-/* ── STATS ── */
 .stats { background:var(--blue); padding:0 2rem 3rem; }
 .stats-grid { max-width:700px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.08); border-radius:8px; overflow:hidden; }
 .stat { background:rgba(255,255,255,0.04); padding:1.6rem 1rem; text-align:center; }
-.stat-n { font-family:'Playfair Display', serif; font-size:2rem; font-weight:900; color:var(--gold-soft); display:block; line-height:1; }
+.stat-n { font-family:'Playfair Display', serif; font-size:1.75rem; font-weight:900; color:var(--gold-soft); display:block; line-height:1; }
 .stat-l { font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.42); margin-top:0.35rem; display:block; }
 
-/* ── LAYOUT ── */
 .wrap { max-width:1080px; margin:0 auto; padding:0 2rem; }
 .wrap-sm { max-width:720px; margin:0 auto; padding:0 2rem; }
 .section { padding:4.5rem 2rem; }
-.section-alt { background:var(--cream); }
 .section-white { background:var(--white); }
-.section-blue { background:var(--blue); }
 .eyebrow { font-size:0.7rem; letter-spacing:0.38em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:0.55rem; display:block; }
-.section-blue .eyebrow { color:var(--gold-soft); }
 h2.title { font-family:'Playfair Display', serif; font-size:clamp(1.5rem, 3.5vw, 2.2rem); font-weight:700; color:var(--text); line-height:1.2; margin-bottom:0.65rem; }
-.section-blue h2.title { color:#fff; }
 .rule { width:36px; height:2.5px; background:var(--gold); border-radius:2px; margin-bottom:1.6rem; }
 .lead { font-size:0.97rem; color:var(--text-muted); line-height:1.88; font-weight:300; }
-.section-blue .lead { color:rgba(255,255,255,0.65); }
 .two-col { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:start; }
 .three-col { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
 
-/* ── PAGE HEADER ── */
 .ph { background:var(--blue); padding:3.5rem 2rem 2.5rem; text-align:center; border-bottom:1px solid rgba(255,255,255,0.06); }
 .ph h1 { font-family:'Playfair Display', serif; font-size:clamp(1.7rem, 5vw, 2.8rem); font-weight:700; color:#fff; }
 .ph p { font-size:0.9rem; color:rgba(255,255,255,0.5); margin-top:0.45rem; }
 
-/* ── TABS ── */
 .tabs-wrap { background:var(--white); border-bottom:1px solid var(--border); position:sticky; top:66px; z-index:100; overflow-x:auto; -webkit-overflow-scrolling:touch; }
 .tabs { display:flex; padding:0 2rem; min-width:max-content; }
 .tab { font-family:inherit; font-size:0.87rem; font-weight:500; color:var(--text-muted); background:none; border:none; border-bottom:2px solid transparent; padding:0.95rem 1.1rem; cursor:pointer; transition:all 0.16s; white-space:nowrap; margin-bottom:-1px; }
@@ -164,7 +124,6 @@ h2.title { font-family:'Playfair Display', serif; font-size:clamp(1.5rem, 3.5vw,
 .panel { display:none; }
 .panel.on { display:block; }
 
-/* ── CARDS ── */
 .card { background:var(--white); border:1px solid var(--border); border-radius:9px; padding:1.6rem; transition:box-shadow 0.18s, transform 0.18s; }
 .card:hover { box-shadow:var(--shadow); transform:translateY(-2px); }
 .card-title { font-family:'Playfair Display', serif; font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:0.5rem; }
@@ -174,46 +133,39 @@ h2.title { font-family:'Playfair Display', serif; font-size:clamp(1.5rem, 3.5vw,
 .tag-active { background:rgba(29,53,87,0.07); color:var(--blue); border:1px solid rgba(29,53,87,0.15); }
 .tag-next { background:rgba(184,125,46,0.1); color:var(--gold); border:1px solid rgba(184,125,46,0.22); }
 .tag-idea { background:var(--linen); color:var(--text-muted); border:1px solid var(--border); }
-.card-note { font-size:0.73rem; color:var(--border); border-top:1px solid var(--linen); padding-top:0.55rem; margin-top:0.8rem; color:var(--text-muted); opacity:0.7; line-height:1.55; }
+.card-note { font-size:0.73rem; border-top:1px solid var(--linen); padding-top:0.55rem; margin-top:0.8rem; color:var(--text-muted); opacity:0.7; line-height:1.55; }
 
-/* ── INFO / WARN BOXES ── */
 .ibox { background:var(--blue-pale); border-left:3px solid var(--blue-mid); border-radius:0 6px 6px 0; padding:0.95rem 1.15rem; }
 .ibox p { font-size:0.88rem; color:var(--blue); line-height:1.65; }
 .wbox { background:rgba(184,125,46,0.07); border-left:3px solid var(--gold); border-radius:0 6px 6px 0; padding:0.95rem 1.15rem; }
 .wbox p { font-size:0.88rem; color:#6b4b12; line-height:1.65; }
 
-/* ── TIMELINE ── */
 .tl { padding-left:1.5rem; border-left:2px solid var(--linen); }
 .tl-item { position:relative; margin-bottom:1.4rem; padding-left:1.15rem; }
 .tl-item::before { content:''; position:absolute; left:-1.62rem; top:0.35rem; width:9px; height:9px; border-radius:50%; background:var(--gold); border:2px solid var(--white); box-shadow:0 0 0 1.5px var(--gold); }
 .tl-h { font-weight:700; font-size:0.97rem; color:var(--gold); display:block; line-height:1.2; }
 .tl-d { font-size:0.88rem; color:var(--text-muted); margin-top:0.12rem; }
 
-/* ── REGL ── */
 .regl-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(270px, 1fr)); gap:1.1rem; margin-top:1.75rem; }
 .regl-card { background:var(--white); border:1px solid var(--border); border-radius:8px; padding:1.4rem; }
 .regl-n { font-family:'Playfair Display', serif; font-size:1.8rem; color:var(--linen); line-height:1; font-weight:900; margin-bottom:0.25rem; }
 .regl-t { font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; color:var(--text); margin-bottom:0.45rem; }
 .regl-p { font-size:0.87rem; color:var(--text-muted); line-height:1.72; }
 
-/* ── TARIF ── */
-.tarif { width:100%; border-collapse:collapse; font-size:0.9rem; opacity:0.5; }
+.tarif { width:100%; border-collapse:collapse; font-size:0.9rem; }
 .tarif tr { border-bottom:1px solid var(--border); }
 .tarif td { padding:0.65rem 0.4rem; color:var(--text-muted); }
 .tarif td:first-child { font-weight:600; color:var(--text); }
 .free { color:var(--gold); font-weight:700; }
 
-/* ── INSCR CLOSED ── */
 .inscr-closed { background:var(--cream); border:1px solid var(--border); border-radius:9px; padding:2.5rem 2rem; text-align:center; }
 .inscr-closed h3 { font-family:'Playfair Display', serif; font-size:1.15rem; margin-bottom:0.65rem; }
 .inscr-closed p { font-size:0.9rem; color:var(--text-muted); line-height:1.75; max-width:440px; margin:0 auto; }
 
-/* ── DOCS ── */
-.docs { display:flex; gap:0.7rem; flex-wrap:wrap; margin-top:1.75rem; }
-.doc-a { display:inline-flex; align-items:center; gap:0.45rem; background:var(--white); border:1px solid var(--border); color:var(--text); padding:0.6em 1.1em; border-radius:5px; text-decoration:none; font-size:0.84rem; font-weight:500; transition:all 0.15s; }
-.doc-a:hover { border-color:var(--gold); color:var(--gold); }
+.reg-pending { background:var(--cream); border:1.5px dashed var(--border); border-radius:9px; padding:2.25rem 2rem; text-align:center; margin-top:1.75rem; }
+.reg-pending p { font-size:0.9rem; color:var(--text-muted); line-height:1.75; }
+.reg-pending p:first-child { font-weight:600; color:var(--text); margin-bottom:0.5rem; font-size:0.95rem; }
 
-/* ── PRESSE ── */
 .press-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(290px, 1fr)); gap:1.4rem; margin-top:1.75rem; }
 .press-a { background:var(--white); border:1px solid var(--border); border-radius:9px; padding:1.6rem; text-decoration:none; display:block; transition:all 0.18s; position:relative; overflow:hidden; }
 .press-a::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2.5px; background:var(--gold); transform:scaleX(0); transform-origin:left; transition:transform 0.22s; }
@@ -224,22 +176,17 @@ h2.title { font-family:'Playfair Display', serif; font-size:clamp(1.5rem, 3.5vw,
 .press-x { font-size:0.84rem; color:var(--text-muted); line-height:1.7; }
 .press-link { display:inline-block; margin-top:0.9rem; font-size:0.8rem; font-weight:600; color:var(--gold); }
 
-/* ── GALERIE ── */
 .gal-empty { border:1.5px dashed var(--border); border-radius:9px; padding:4rem 2rem; text-align:center; margin-top:1.75rem; }
 .gal-empty p { font-size:0.88rem; color:var(--text-muted); margin-top:0.4rem; }
 
-/* ── MÉCÉNAT ── */
-.mecenat-intro { max-width:640px; }
 .contact-card { background:var(--white); border:1px solid var(--border); border-radius:9px; padding:2.25rem; margin-top:2rem; max-width:540px; }
 .contact-card h3 { font-family:'Playfair Display', serif; font-size:1.15rem; color:var(--text); margin-bottom:0.65rem; }
 .contact-card p { font-size:0.9rem; color:var(--text-muted); line-height:1.78; margin-bottom:1.25rem; }
 
-/* ── DON BOX ── */
 .don-box { background:var(--blue); border-radius:9px; padding:2.25rem; text-align:center; margin-top:2rem; }
 .don-box h3 { font-family:'Playfair Display', serif; font-size:1.15rem; color:#fff; margin-bottom:0.6rem; }
 .don-box p { font-size:0.88rem; color:rgba(255,255,255,0.6); line-height:1.75; margin-bottom:1.25rem; max-width:420px; margin-left:auto; margin-right:auto; }
 
-/* ── CONTACT FORM ── */
 .cf-wrap { max-width:640px; margin:0 auto; }
 .form { display:flex; flex-direction:column; gap:1.1rem; }
 .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; }
@@ -260,12 +207,10 @@ h2.title { font-family:'Playfair Display', serif; font-size:clamp(1.5rem, 3.5vw,
 .fsuc { display:none; background:rgba(29,53,87,0.06); border:1px solid rgba(29,53,87,0.15); border-radius:5px; padding:0.95rem 1.1rem; color:var(--blue); font-size:0.9rem; }
 .fsuc.on { display:block; }
 
-/* ── ASSO ── */
 .asso-photo { border-radius:9px; overflow:hidden; aspect-ratio:4/3; background:var(--cream); border:1px solid var(--border); }
 .asso-photo img { width:100%; height:100%; object-fit:cover; object-position:center 30%; display:block; }
 .photo-cap { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); text-align:center; margin-top:0.55rem; }
 
-/* ── PARTNERS ── */
 .partners-strip { background:var(--cream); border-top:1px solid var(--border); padding:2.5rem 2rem; }
 .p-label { font-size:0.7rem; letter-spacing:0.35em; text-transform:uppercase; color:var(--text-muted); text-align:center; margin-bottom:2.25rem; }
 .p-logos { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:2rem 3rem; }
@@ -275,7 +220,6 @@ h2.title { font-family:'Playfair Display', serif; font-size:clamp(1.5rem, 3.5vw,
 .p-item:hover img { filter:none; }
 .p-item span { font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); }
 
-/* ── FOOTER ── */
 footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2rem; }
 .ft-inner { max-width:1080px; margin:0 auto; }
 .ft-top { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:3rem; margin-bottom:2.25rem; }
@@ -290,21 +234,17 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
 .ft-ig { display:flex; align-items:center; gap:0.4rem; color:rgba(255,255,255,0.55); text-decoration:none; font-size:0.82rem; transition:color 0.15s; }
 .ft-ig:hover { color:#fff; }
 
-/* ── BTT ── */
 #btt { position:fixed; bottom:1.5rem; right:1.5rem; z-index:150; width:40px; height:40px; background:var(--white); border:1.5px solid var(--border); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; opacity:0; transform:translateY(6px); transition:all 0.22s; box-shadow:var(--shadow-sm); color:var(--text); font-size:0.95rem; }
 #btt.show { opacity:1; transform:translateY(0); }
 #btt:hover { background:var(--gold); border-color:var(--gold); color:#fff; }
 
-/* ── REVEAL ── */
 .rv { opacity:0; transform:translateY(18px); transition:opacity 0.5s ease, transform 0.5s ease; }
 .rv.in { opacity:1; transform:none; }
 
-/* ── MAP ── */
 .elev-wrap { position:relative; }
 .elev-tip { position:absolute; top:8px; z-index:10; background:var(--white); border:1px solid var(--border); border-radius:4px; padding:0.28rem 0.55rem; pointer-events:none; white-space:nowrap; font-size:0.76rem; color:var(--blue); font-weight:600; transform:translateX(-50%); display:none; box-shadow:var(--shadow-sm); }
 .elev-cur { position:absolute; top:0; bottom:0; width:1px; background:var(--gold); pointer-events:none; display:none; opacity:0.65; }
 
-/* ── RESPONSIVE ── */
 @media (max-width:900px) { .two-col, .three-col, .ft-top { grid-template-columns:1fr; gap:2rem; } }
 @media (max-width:768px) {
   .nav-links { display:none; }
@@ -314,14 +254,13 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
   .form-row { grid-template-columns:1fr; }
   #btt { bottom:1rem; right:1rem; }
 }
-@media (max-width:480px) { .hero-cta { flex-direction:column; align-items:center; } .docs { flex-direction:column; } .ft-bot { flex-direction:column; text-align:center; } }
+@media (max-width:480px) { .hero-cta { flex-direction:column; align-items:center; } .ft-bot { flex-direction:column; text-align:center; } }
 </style>
 </head>
 <body>
 
 <a href="#main" class="skip">Aller au contenu</a>
 
-<!-- Cookie bar -->
 <div id="cookie-bar" role="dialog" aria-label="Cookies">
   <p>Ce site utilise des cookies techniques nécessaires (formulaire de contact) et, si vous l'acceptez, des cookies liés à la carte OpenStreetMap. Aucun tracking ni publicité. <a href="politique-cookies.html">En savoir plus</a>.</p>
   <div class="ck-btns">
@@ -330,10 +269,9 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
   </div>
 </div>
 
-<!-- Nav -->
 <nav role="navigation" aria-label="Navigation principale">
   <a href="#" class="nav-logo" onclick="goPage('accueil');return false;" aria-label="Accueil La Roskourt'Vite">
-    <img src="logo_roskourtvite.jpeg" alt="Logo de l'association La Roskourt'Vite — chronomètre avec coureurs et phare de Roscoff" height="36">
+    <img src="logo_roskourtvite.png" alt="Logo de l'association La Roskourt'Vite, chronomètre avec coureurs et phare de Roscoff" height="44">
     <div>
       <span class="nav-logo-name">La <em>Roskourt'Vite</em></span>
       <span class="nav-logo-sub">Roscoff · Finistère</span>
@@ -356,16 +294,15 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
   <button class="mob-btn" onclick="goPage('contact');toggleMenu()" role="menuitem">Contact</button>
 </div>
 
-<!-- ══ PAGE ACCUEIL ══ -->
+<!-- ══ ACCUEIL ══ -->
 <div class="page active" id="page-accueil" id="main" role="main">
-
   <header class="hero">
     <div class="hero-inner">
-      <img src="logo_roskourtvite.jpeg" alt="Logo de l'association La Roskourt'Vite" class="hero-logo">
+      <img src="logo_roskourtvite.png" alt="Logo de l'association La Roskourt'Vite" class="hero-logo">
       <p class="hero-eyebrow">Association sportive étudiante · Roscoff, Finistère</p>
       <h1 class="hero-title">La <span class="gold">Roskourt'Vite</span></h1>
       <p class="hero-sub">Backyard Ultra · Running Club · Événements sportifs ouverts à tous</p>
-      <div class="countdown-section">
+      <div>
         <p class="cd-label">Prochaine Backyard Ultra · 12 juin 2027</p>
         <div class="cd" role="timer" aria-label="Compte à rebours jusqu'au 12 juin 2027">
           <div class="cd-unit"><span class="cd-num" id="cd-j">--</span><span class="cd-lbl">Jours</span></div>
@@ -386,7 +323,7 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
 
   <div class="stats">
     <div class="stats-grid" role="region" aria-label="Chiffres clés">
-      <div class="stat"><span class="stat-n">6,8</span><span class="stat-l">km par boucle</span></div>
+      <div class="stat"><span class="stat-n">6,7056</span><span class="stat-l">km par boucle</span></div>
       <div class="stat"><span class="stat-n">1h</span><span class="stat-l">par tour</span></div>
       <div class="stat"><span class="stat-n">24h</span><span class="stat-l">durée maximum</span></div>
     </div>
@@ -397,7 +334,7 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
       <span class="eyebrow">Le principe</span>
       <h2 class="title">La Backyard Ultra, c'est quoi ?</h2>
       <div class="rule"></div>
-      <p class="lead">Un format d'endurance né aux États-Unis : toutes les heures, une boucle de 6,8 km. Pour rester en course, il faut passer la ligne avant le prochain départ. La course s'arrête quand il ne reste qu'un seul coureur debout — le dernier, et le seul vainqueur.</p>
+      <p class="lead">Un format d'endurance né aux États-Unis : toutes les heures, une boucle de 6,7056 km. Pour rester en course, il faut passer la ligne avant le prochain départ. La course s'arrête quand il ne reste qu'un seul coureur debout, le dernier, et le seul vainqueur.</p>
       <div style="margin-top:1.75rem; display:flex; gap:0.8rem; flex-wrap:wrap;">
         <button onclick="goPage('course')" class="btn btn-outline btn-sm">Tout savoir sur la course</button>
         <button onclick="goPage('asso')" class="btn btn-outline btn-sm">L'association</button>
@@ -423,7 +360,7 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
       <div class="ft-top">
         <div class="ft-brand">
           <div class="name">La <em>Roskourt'Vite</em></div>
-          <p>Association loi 1901 fondée en 2026 à la Station biologique de Roscoff — CNRS / Sorbonne Université.<br>RNA : W293009016</p>
+          <p>Association loi 1901 fondée en 2026 à la Station biologique de Roscoff, CNRS et Sorbonne Université.<br>RNA : W293009016</p>
         </div>
         <div class="ft-col"><h4>Navigation</h4><ul>
           <li><button onclick="goPage('accueil')">Accueil</button></li>
@@ -448,10 +385,10 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
   </footer>
 </div>
 
-<!-- ══ PAGE COURSE ══ -->
+<!-- ══ COURSE ══ -->
 <div class="page" id="page-course">
   <div class="ph">
-    <span class="eyebrow" style="color:var(--gold-soft);">Co-portée avec l'ALBM · Soutenue par Sorbonne Université / CVEC</span>
+    <span class="eyebrow" style="color:var(--gold-soft);">Co-portée avec l'ALBM, soutenue par Sorbonne Université via la CVEC</span>
     <h1>La Course</h1>
     <p>Backyard Ultra · Prochaine édition juin 2027</p>
   </div>
@@ -463,67 +400,57 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
     <button class="tab" onclick="goTab('edition2026')">Édition 2026</button>
   </div></div>
 
-  <!-- Format -->
+  <!-- Format général -->
   <div class="panel on" id="panel-format">
     <section class="section section-white">
       <div class="wrap">
         <div class="two-col">
           <div class="rv">
             <span class="eyebrow">L'épreuve</span>
-            <h2 class="title">La Backyard Ultra</h2>
+            <h2 class="title">Le Backyard Ultra</h2>
             <div class="rule"></div>
-            <p class="lead" style="margin-bottom:0.9rem;">Imaginé aux États-Unis par Gary Cantrell, le Backyard Ultra repose sur un principe simple : toutes les heures, une boucle de 6,8 km. Qui ne se présente pas au départ suivant est éliminé.</p>
-            <p class="lead" style="margin-bottom:0.9rem;">Il n'y a ni distance définie, ni classement au chrono. La course prend fin lorsqu'un seul coureur est encore capable de prendre le départ. Pour être déclaré vainqueur, il doit compléter une boucle supplémentaire après l'abandon du dernier adversaire.</p>
-            <p class="lead">C'est autant un effort mental que physique. La gestion de l'allure, la récupération entre les tours et la capacité à repartir malgré la fatigue font toute la différence.</p>
+            <p class="lead" style="margin-bottom:0.9rem;">Imaginé aux États-Unis par Gary Cantrell, le Backyard Ultra repose sur un principe simple : toutes les heures, une boucle de 6,7056 km, soit précisément 4 miles et 880 pieds. Qui ne se présente pas au départ suivant est éliminé.</p>
+            <p class="lead" style="margin-bottom:0.9rem;">Il n'y a ni distance fixée à l'avance, ni classement au chrono. La course prend fin lorsqu'un seul coureur est encore capable de prendre le départ. Pour être déclaré vainqueur, il doit compléter une boucle supplémentaire après l'abandon du dernier adversaire. Si personne n'y parvient seul, aucun vainqueur n'est désigné.</p>
+            <p class="lead">C'est un format qui demande autant de lucidité que d'endurance. La gestion de l'allure, la récupération entre les tours et la capacité à repartir malgré la fatigue font toute la différence.</p>
           </div>
           <div class="rv">
             <div class="ibox" style="margin-bottom:1.1rem;">
-              <p><strong>Parcours :</strong> Boucle entre le parking du Château du Laber et la pointe de Perharidy, sur les sentiers côtiers de Roscoff. Vue sur la mer et l'île de Batz.</p>
+              <p><strong>Parcours :</strong> Boucle sur les sentiers côtiers de Roscoff, dénivelé positif faible (inférieur à 20 m). Le tracé précis est confirmé avant chaque édition.</p>
             </div>
             <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:7px;overflow:hidden;margin-bottom:1.1rem;">
-              <div style="background:var(--cream);padding:1.35rem 0.6rem;text-align:center;"><span style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;color:var(--gold);display:block;">6,8</span><span style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);">km / boucle</span></div>
-              <div style="background:var(--cream);padding:1.35rem 0.6rem;text-align:center;"><span style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;color:var(--gold);display:block;">1h</span><span style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);">par tour</span></div>
-              <div style="background:var(--cream);padding:1.35rem 0.6rem;text-align:center;"><span style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;color:var(--gold);display:block;">24h</span><span style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);">max</span></div>
+              <div style="background:var(--cream);padding:1.35rem 0.5rem;text-align:center;"><span style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--gold);display:block;">6,7056</span><span style="font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);">km / boucle</span></div>
+              <div style="background:var(--cream);padding:1.35rem 0.5rem;text-align:center;"><span style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;color:var(--gold);display:block;">1h</span><span style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);">par tour</span></div>
+              <div style="background:var(--cream);padding:1.35rem 0.5rem;text-align:center;"><span style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;color:var(--gold);display:block;">24h</span><span style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);">max</span></div>
+            </div>
+            <div class="wbox">
+              <p>Sur 24 heures d'épreuve, une partie de la course se déroule de nuit. Lampe frontale obligatoire pour les boucles concernées.</p>
             </div>
           </div>
-        </div>
-        <!-- Carte -->
-        <div style="margin-top:3.5rem;" class="rv">
-          <span class="eyebrow">Le tracé</span>
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:0.4rem;">Parcours · 6,8 km</h3>
-          <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1rem;">Parking du Laber → Pointe de Perharidy · Roscoff</p>
-          <div id="map" style="width:100%;height:350px;border-radius:8px 8px 0 0;overflow:hidden;border:1px solid var(--border);border-bottom:none;" role="application" aria-label="Carte interactive du parcours de la Roskourt'Vite"></div>
-          <div class="elev-wrap">
-            <canvas id="elevation-chart" height="105" style="width:100%;display:block;background:var(--cream);border-radius:0 0 8px 8px;border:1px solid var(--border);border-top:none;cursor:crosshair;" role="img" aria-label="Graphique du dénivelé du parcours"></canvas>
-            <div class="elev-cur" id="elev-line" aria-hidden="true"></div>
-            <div class="elev-tip" id="elev-tip" role="tooltip"></div>
-          </div>
-          <p style="font-size:0.73rem;color:var(--text-muted);margin-top:0.45rem;text-align:center;">Survolez le graphique pour voir votre position sur le tracé · Données © OpenStreetMap</p>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- Programme -->
+  <!-- Programme général -->
   <div class="panel" id="panel-programme">
     <section class="section section-white">
       <div class="wrap">
         <div class="two-col">
           <div class="rv">
-            <span class="eyebrow">Journée type</span>
+            <span class="eyebrow">Déroulement type</span>
             <h2 class="title">Programme</h2>
             <div class="rule"></div>
             <div class="tl">
-              <div class="tl-item"><span class="tl-h">7h30</span><span class="tl-d">Accueil des participants — Parking du Laber</span></div>
+              <div class="tl-item"><span class="tl-h">8h00</span><span class="tl-d">Accueil des participants et retrait des dossards</span></div>
               <div class="tl-item"><span class="tl-h">8h45</span><span class="tl-d">Briefing obligatoire</span></div>
               <div class="tl-item"><span class="tl-h">9h00</span><span class="tl-d">Départ de la première boucle</span></div>
-              <div class="tl-item"><span class="tl-h">Dans l'après-midi</span><span class="tl-d">Animation musicale et initiation à la danse bretonne</span></div>
-              <div class="tl-item"><span class="tl-h">Toute la journée</span><span class="tl-d">Restauration sur place — foodtruck et buvette</span></div>
+              <div class="tl-item"><span class="tl-h">Toute la journée et la nuit</span><span class="tl-d">Boucles horaires jusqu'à l'élimination de tous les coureurs sauf un, ou jusqu'à 24 heures d'épreuve</span></div>
+              <div class="tl-item"><span class="tl-h">En parallèle</span><span class="tl-d">Animations, restauration sur place et vie de la base pour participants et accompagnants</span></div>
             </div>
           </div>
           <div class="rv">
-            <div class="ibox" style="margin-bottom:1rem;"><p><strong>Lieu :</strong> Bâtiment Marie Goldsmith — Station biologique de Roscoff, 99 rue de Roc'h Klehure, 29680 Roscoff.</p></div>
-            <div class="wbox"><p>La présence au briefing de 8h45 est obligatoire. Tout participant absent pourra se voir refuser le départ.</p></div>
+            <div class="ibox" style="margin-bottom:1rem;"><p><strong>Base de vie :</strong> Un point central accueille les participants après chaque boucle, avec ravitaillement, matériel médical et suivi du pointage.</p></div>
+            <div class="wbox"><p>Le briefing est obligatoire pour tous les participants. Toute absence peut entraîner un refus de départ.</p></div>
           </div>
         </div>
       </div>
@@ -535,24 +462,24 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
     <section class="section section-white">
       <div class="wrap-sm">
         <span class="eyebrow">Participer</span>
-        <h2 class="title">Inscription — Édition 2027</h2>
+        <h2 class="title">Inscription, édition 2027</h2>
         <div class="rule"></div>
         <div class="inscr-closed rv">
           <h3>Les inscriptions ouvriront prochainement</h3>
           <p>L'édition 2027 est en cours de préparation. Les modalités d'inscription seront communiquées en temps voulu. Suivez-nous sur Instagram pour être informé en premier.</p>
           <a href="https://www.instagram.com/roskourtvite" target="_blank" rel="noopener" class="btn btn-blue" style="margin-top:1.5rem;">Suivre sur Instagram</a>
         </div>
-        <div style="margin-top:2.5rem;opacity:0.45;" class="rv">
-          <p style="font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;">Tarifs de l'édition 2026 — à titre indicatif</p>
-          <table class="tarif" aria-label="Tarifs indicatifs édition 2026">
+        <div style="margin-top:2.5rem;" class="rv">
+          <p style="font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;">Tarifs prévisionnels</p>
+          <table class="tarif" aria-label="Tarifs prévisionnels">
             <thead><tr><th style="text-align:left;padding:0.55rem 0.4rem;font-size:0.78rem;font-weight:600;color:var(--text-muted);">Public</th><th style="padding:0.55rem 0.4rem;font-size:0.78rem;font-weight:600;color:var(--text-muted);">Tarif</th></tr></thead>
             <tbody>
-              <tr><td>Étudiants</td><td class="free">Gratuit</td></tr>
-              <tr><td>Bénévoles</td><td class="free">Gratuit</td></tr>
-              <tr><td>Personnel Station Biologique</td><td>3 €</td></tr>
+              <tr><td>Étudiants, toute nationalité, sur justificatif</td><td class="free">Gratuit</td></tr>
+              <tr><td>Personnel de la Station Biologique</td><td>3 €</td></tr>
               <tr><td>Autres participants</td><td>5 €</td></tr>
             </tbody>
           </table>
+          <p style="font-size:0.78rem;color:var(--text-muted);margin-top:1rem;">Inscription en ligne uniquement, via une plateforme dédiée. Jauge limitée à 200 participants.</p>
         </div>
       </div>
     </section>
@@ -565,27 +492,18 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
         <span class="eyebrow">Officiel</span>
         <h2 class="title">Règlement</h2>
         <div class="rule"></div>
+        <p class="lead" style="max-width:680px;margin-bottom:0.5rem;">Le règlement complet de l'édition 2027 est en cours de finalisation par l'association. Voici les points essentiels à connaître dès maintenant.</p>
         <div class="regl-grid">
-          <div class="regl-card rv"><div class="regl-n">01</div><div class="regl-t">Format</div><p class="regl-p">Une boucle de 6,8 km toutes les heures. Départ à 9h00, puis à chaque heure pleine. Manquer le départ entraîne l'élimination immédiate.</p></div>
-          <div class="regl-card rv"><div class="regl-n">02</div><div class="regl-t">Victoire</div><p class="regl-p">Le vainqueur est le dernier coureur encore en course, ayant complété une boucle supplémentaire après l'abandon du dernier adversaire.</p></div>
-          <div class="regl-card rv"><div class="regl-n">03</div><div class="regl-t">Durée</div><p class="regl-p">L'épreuve peut durer jusqu'à 24 heures. En cas d'égalité, le classement est établi selon l'ordre d'arrivée de la dernière boucle.</p></div>
-          <div class="regl-card rv"><div class="regl-n">04</div><div class="regl-t">Nuit</div><p class="regl-p">Lampe frontale obligatoire pour toute boucle effectuée en faible luminosité. Port d'éléments réfléchissants fortement recommandé.</p></div>
-          <div class="regl-card rv"><div class="regl-n">05</div><div class="regl-t">Sécurité</div><p class="regl-p">Base de vie centrale accessible après chaque boucle. Bénévoles identifiés, secouriste et matériel médical présents sur toute la durée.</p></div>
-          <div class="regl-card rv"><div class="regl-n">06</div><div class="regl-t">Environnement</div><p class="regl-p">Zéro déchet sur le parcours. Respect de la faune, de la flore et des autres usagers. Tout manquement peut entraîner l'exclusion immédiate.</p></div>
+          <div class="regl-card rv"><div class="regl-n">01</div><div class="regl-t">Format</div><p class="regl-p">Boucle de 6,7056 km à compléter toutes les heures. Un départ toutes les heures pleines, dès 9h00. Manquer le départ vaut abandon.</p></div>
+          <div class="regl-card rv"><div class="regl-n">02</div><div class="regl-t">Participants</div><p class="regl-p">Course ouverte à partir de 16 ans. Les mineurs de 16 et 17 ans participent avec une autorisation parentale écrite et sous la responsabilité de leurs représentants légaux.</p></div>
+          <div class="regl-card rv"><div class="regl-n">03</div><div class="regl-t">Documents requis</div><p class="regl-p">Pièce d'identité, justificatif de statut le cas échéant, et Pass Prévention Santé ou licence FFA en cours de validité selon la réglementation running en vigueur.</p></div>
+          <div class="regl-card rv"><div class="regl-n">04</div><div class="regl-t">Durée et victoire</div><p class="regl-p">L'épreuve dure au maximum 24 heures. Le vainqueur est le dernier coureur capable de réaliser une boucle de plus que tous ses adversaires.</p></div>
+          <div class="regl-card rv"><div class="regl-n">05</div><div class="regl-t">Sécurité</div><p class="regl-p">Base de vie centrale, secouristes professionnels et défibrillateur présents sur toute la durée de l'épreuve. Lampe frontale obligatoire de nuit.</p></div>
+          <div class="regl-card rv"><div class="regl-n">06</div><div class="regl-t">Environnement</div><p class="regl-p">Le parcours traverse des espaces naturels sensibles du littoral. Aucun déchet, respect strict du balisage, de la faune et de la flore.</p></div>
         </div>
-        <div class="docs rv">
-          <a href="Re_glement_La_ROSKOURT_VITE_Version_mars_2026.pdf" target="_blank" rel="noopener" class="doc-a" aria-label="Télécharger le règlement complet">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Règlement complet
-          </a>
-          <a href="autorisation_parentale.pdf" target="_blank" rel="noopener" class="doc-a" aria-label="Autorisation parentale">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Autorisation parentale
-          </a>
-          <a href="fiche_acceptation_reglement.pdf" target="_blank" rel="noopener" class="doc-a" aria-label="Fiche d'acceptation du règlement">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Fiche d'acceptation
-          </a>
+        <div class="reg-pending rv">
+          <p>Règlement complet en cours de finalisation</p>
+          <p>Le document officiel détaillant l'ensemble des 20 articles (assurance, responsabilité, matériel obligatoire, données personnelles, antidopage) sera mis en ligne ici dès sa version définitive.</p>
         </div>
       </div>
     </section>
@@ -596,30 +514,41 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
     <section class="section section-white">
       <div class="wrap-sm">
         <span class="eyebrow">Historique</span>
-        <h2 class="title">Édition 2026 — Annulée</h2>
+        <h2 class="title">Édition 2026, annulée</h2>
         <div class="rule"></div>
         <div style="background:var(--cream);border:1px solid var(--border);border-radius:9px;padding:2rem;" class="rv">
           <p style="font-size:0.95rem;color:var(--text-muted);line-height:1.85;margin-bottom:0.85rem;font-weight:300;">La première édition de la Roskourt'Vite, prévue le 6 juin 2026, co-portée avec l'<strong>ALBM</strong> (Association des Licences BIO-MAD) et soutenue par Sorbonne Université via la CVEC, a dû être annulée à trois jours de la course.</p>
           <p style="font-size:0.95rem;color:var(--text-muted);line-height:1.85;margin-bottom:0.85rem;font-weight:300;">Des difficultés administratives de dernière minute, doublées de conditions météorologiques dangereuses sur le parcours côtier, nous ont contraints à prendre cette décision. 150 personnes étaient inscrites.</p>
           <p style="font-size:0.95rem;color:var(--text-muted);line-height:1.85;font-weight:300;">Nous en sommes sincèrement désolés. L'édition 2027, également portée avec l'ALBM, est en cours de préparation avec une organisation renforcée.</p>
         </div>
-        <div style="margin-top:1.25rem;" class="rv">
+        <div style="margin-top:1.25rem;margin-bottom:2.5rem;" class="rv">
           <button onclick="goPage('contact')" class="btn btn-outline btn-sm">Une question sur le remboursement ? Nous contacter</button>
+        </div>
+        <div class="rv">
+          <span class="eyebrow">Le tracé de 2026</span>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:0.4rem;">Parcours prévu pour l'édition 2026</h3>
+          <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1rem;">Parking du Laber vers la pointe de Perharidy, Roscoff</p>
+          <div id="map" style="width:100%;height:340px;border-radius:8px 8px 0 0;overflow:hidden;border:1px solid var(--border);border-bottom:none;" role="application" aria-label="Carte du parcours prévu pour l'édition 2026"></div>
+          <div class="elev-wrap">
+            <canvas id="elevation-chart" height="100" style="width:100%;display:block;background:var(--cream);border-radius:0 0 8px 8px;border:1px solid var(--border);border-top:none;cursor:crosshair;" role="img" aria-label="Graphique du dénivelé du parcours 2026"></canvas>
+            <div class="elev-cur" id="elev-line" aria-hidden="true"></div>
+            <div class="elev-tip" id="elev-tip" role="tooltip"></div>
+          </div>
         </div>
       </div>
     </section>
   </div>
 
   <div class="partners-strip"><div style="max-width:1080px;margin:0 auto;"><p class="p-label">Nos partenaires</p><div class="p-logos"><div class="p-item"><img src="logo_roscoff.png" alt="Ville de Roscoff" onerror="this.parentElement.style.display='none'"><span>Ville de Roscoff</span></div><div class="p-item"><img src="logo_sorbonne.png" alt="Sorbonne Université" onerror="this.parentElement.style.display='none'"><span>Sorbonne Université</span></div><div class="p-item"><img src="logo_sbr.png" alt="Station Biologique de Roscoff" onerror="this.parentElement.style.display='none'"><span>Station Biologique</span></div><div class="p-item"><img src="logo_cvec.png" alt="CVEC" onerror="this.parentElement.style.display='none'"><span>CVEC</span></div><div class="p-item"><img src="logo_raidlight.png" alt="Raidlight" onerror="this.parentElement.style.display='none'"><span>Raidlight</span></div></div></div></div>
-  <footer role="contentinfo"><div class="ft-inner"><div class="ft-top"><div class="ft-brand"><div class="name">La <em>Roskourt'Vite</em></div><p>Association loi 1901 fondée en 2026 à la Station biologique de Roscoff — CNRS / Sorbonne Université.<br>RNA : W293009016</p></div><div class="ft-col"><h4>Navigation</h4><ul><li><button onclick="goPage('accueil')">Accueil</button></li><li><button onclick="goPage('course')">La Course</button></li><li><button onclick="goPage('asso')">L'Association</button></li><li><button onclick="goPage('contact')">Contact</button></li></ul></div><div class="ft-col"><h4>Légal</h4><ul><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="politique-confidentialite.html">Confidentialité</a></li><li><a href="politique-cookies.html">Cookies</a></li></ul></div></div><div class="ft-bot"><span>© 2026 Association La Roskourt'Vite · Roscoff</span><a href="https://www.instagram.com/roskourtvite" target="_blank" rel="noopener noreferrer" class="ft-ig" aria-label="Instagram @roskourtvite"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>@roskourtvite</a></div></div></footer>
+  <footer role="contentinfo"><div class="ft-inner"><div class="ft-top"><div class="ft-brand"><div class="name">La <em>Roskourt'Vite</em></div><p>Association loi 1901 fondée en 2026 à la Station biologique de Roscoff, CNRS et Sorbonne Université.<br>RNA : W293009016</p></div><div class="ft-col"><h4>Navigation</h4><ul><li><button onclick="goPage('accueil')">Accueil</button></li><li><button onclick="goPage('course')">La Course</button></li><li><button onclick="goPage('asso')">L'Association</button></li><li><button onclick="goPage('contact')">Contact</button></li></ul></div><div class="ft-col"><h4>Légal</h4><ul><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="politique-confidentialite.html">Confidentialité</a></li><li><a href="politique-cookies.html">Cookies</a></li></ul></div></div><div class="ft-bot"><span>© 2026 Association La Roskourt'Vite · Roscoff</span><a href="https://www.instagram.com/roskourtvite" target="_blank" rel="noopener noreferrer" class="ft-ig" aria-label="Instagram @roskourtvite"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>@roskourtvite</a></div></div></footer>
 </div>
 
-<!-- ══ PAGE ASSO ══ -->
+<!-- ══ ASSO ══ -->
 <div class="page" id="page-asso">
   <div class="ph">
     <span class="eyebrow" style="color:var(--gold-soft);">Association étudiante · Roscoff</span>
     <h1>L'Association</h1>
-    <p>La Roskourt'Vite · Fondée en 2026</p>
+    <p>La Roskourt'Vite, fondée en 2026</p>
   </div>
   <div class="tabs-wrap"><div class="tabs">
     <button class="tab on" onclick="goTab('qui')">Qui sommes-nous</button>
@@ -638,12 +567,12 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
             <span class="eyebrow">L'association</span>
             <h2 class="title">La Roskourt'Vite</h2>
             <div class="rule"></div>
-            <p class="lead" style="margin-bottom:0.9rem;">Fondée en février 2026, La Roskourt'Vite est une association loi 1901 créée par des étudiants de la licence <strong>BIO-MAD</strong> — Biologie, Modélisation et Analyse de Données — de la Station biologique de Roscoff, rattachée au CNRS et à Sorbonne Université.</p>
-            <p class="lead" style="margin-bottom:0.9rem;">On part d'un constat simple : on a la chance d'étudier dans un endroit exceptionnel. Autant en profiter. Notre association organise des événements sportifs ouverts à tous — étudiants, personnel de la Station, habitants — avec l'idée que le sport n'a pas besoin d'être élitiste pour être sérieux.</p>
-            <p class="lead" style="margin-bottom:1.25rem;">Les éditions 2026 et 2027 de la Backyard Ultra sont co-portées avec l'<strong>ALBM</strong> (Association des Licences BIO-MAD), avec le soutien financier de Sorbonne Université via la CVEC.</p>
+            <p class="lead" style="margin-bottom:0.9rem;">Fondée en février 2026, La Roskourt'Vite est une association loi 1901 créée par des étudiants de la licence <strong>BIO-MAD</strong>, Biologie, Modélisation et Analyse de Données, de la Station biologique de Roscoff, rattachée au CNRS et à Sorbonne Université.</p>
+            <p class="lead" style="margin-bottom:0.9rem;">On part d'un constat simple : on a la chance d'étudier dans un endroit exceptionnel, autant en profiter. L'association organise des événements sportifs ouverts à tous, étudiants, personnel de la Station, habitants, avec l'idée que le sport n'a pas besoin d'être élitiste pour être sérieux.</p>
+            <p class="lead" style="margin-bottom:1.25rem;">Les éditions 2026 et 2027 de la Backyard Ultra sont co-portées avec l'<strong>ALBM</strong>, Association des Licences BIO-MAD, avec le soutien financier de Sorbonne Université via la CVEC.</p>
             <blockquote style="padding:1rem 1.25rem;border-left:2.5px solid var(--gold);background:var(--cream);border-radius:0 6px 6px 0;">
               <p style="font-style:italic;font-size:0.9rem;color:var(--text-muted);line-height:1.7;">« Ce projet vise à faire vivre le sport localement. »</p>
-              <cite style="font-size:0.77rem;color:var(--text-muted);margin-top:0.35rem;display:block;">— Les organisateurs, Le Télégramme, mai 2026</cite>
+              <cite style="font-size:0.77rem;color:var(--text-muted);margin-top:0.35rem;display:block;">Les organisateurs, Le Télégramme, mai 2026</cite>
             </blockquote>
           </div>
           <div class="rv">
@@ -671,7 +600,7 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
             <span class="tag tag-next">Prochaine édition</span>
             <div class="card-title">Backyard Ultra 2027</div>
             <p class="card-text">L'édition 2027 est en cours de préparation. La procédure administrative est anticipée dès maintenant. Rendez-vous le 12 juin 2027.</p>
-            <p class="card-note">Co-portée avec l'ALBM · Soutien Sorbonne / CVEC</p>
+            <p class="card-note">Co-portée avec l'ALBM, soutien Sorbonne Université via la CVEC</p>
           </div>
           <div class="card rv">
             <span class="tag tag-active">En cours</span>
@@ -681,13 +610,13 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
           <div class="card rv">
             <span class="tag tag-idea">En réflexion</span>
             <div class="card-title">Séjours sportifs</div>
-            <p class="card-text">Nous réfléchissons à des séjours trail, randonnée ou activités nautiques pour les étudiants — pour explorer autrement le territoire breton.</p>
+            <p class="card-text">Nous réfléchissons à des séjours trail, randonnée ou activités nautiques pour les étudiants, pour explorer autrement le territoire breton.</p>
           </div>
           <div class="card rv">
             <span class="tag tag-past">Annulée</span>
             <div class="card-title">Backyard Ultra 2026</div>
             <p class="card-text">La première édition, prévue le 6 juin 2026, a dû être annulée à trois jours de la course en raison de difficultés administratives et de conditions météo dangereuses.</p>
-            <p class="card-note">Co-portée avec l'ALBM · Soutien Sorbonne / CVEC · <button onclick="goPage('course');setTimeout(()=>goTab('edition2026'),80)" style="background:none;border:none;color:var(--gold);cursor:pointer;font-size:inherit;padding:0;font-family:inherit;text-decoration:underline;">Lire le détail</button></p>
+            <p class="card-note">Co-portée avec l'ALBM, soutien Sorbonne Université via la CVEC. <button onclick="goPage('course');setTimeout(()=>goTab('edition2026'),80)" style="background:none;border:none;color:var(--gold);cursor:pointer;font-size:inherit;padding:0;font-family:inherit;text-decoration:underline;">Lire le détail</button></p>
           </div>
         </div>
       </div>
@@ -705,13 +634,13 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
           <a href="https://www.letelegramme.fr/finistere/roscoff-29680/qui-veut-participer-a-la-la-roskourtvite-le-6-juin-entre-le-laber-et-perharidy-a-roscoff-7041393.php" target="_blank" rel="noopener" class="press-a rv" aria-label="Lire l'article du Télégramme">
             <span class="press-src">Le Télégramme · 12 mai 2026</span>
             <div class="press-h">Ces étudiants lancent leur propre course d'endurance à Roscoff</div>
-            <p class="press-x">La Roskourt'Vite, un Backyard Ultra le 6 juin entre le Laber et Perharidy — une première pour la commune.</p>
+            <p class="press-x">La Roskourt'Vite, un Backyard Ultra le 6 juin entre le Laber et Perharidy, une première pour la commune.</p>
             <span class="press-link">Lire l'article →</span>
           </a>
           <a href="https://www.ouest-france.fr/france/bretagne/roscoff/roscoff-ou-et-comment-participer-a-la-roskourtvite-le-samedi-6-juin-35733148-4a23-11f1-8d14-8d13dcb22116" target="_blank" rel="noopener" class="press-a rv" aria-label="Lire l'article de Ouest-France">
             <span class="press-src">Ouest-France · Mai 2026</span>
             <div class="press-h">Roscoff : où et comment participer à la Roskourt'Vite ?</div>
-            <p class="press-x">Format backyard ultra, 6,8 km, tarifs accessibles, animations tout au long de la journée.</p>
+            <p class="press-x">Format backyard ultra, tarifs accessibles, animations tout au long de la journée.</p>
             <span class="press-link">Lire l'article →</span>
           </a>
         </div>
@@ -731,18 +660,18 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
     </section>
   </div>
 
-  <!-- Mécénat simplifié -->
+  <!-- Mécénat -->
   <div class="panel" id="panel-mecenat">
     <section class="section section-white">
       <div class="wrap">
         <div class="two-col">
           <div class="rv">
             <span class="eyebrow">Nous soutenir</span>
-            <h2 class="title">Partenaires &amp; Mécènes</h2>
+            <h2 class="title">Partenaires et mécènes</h2>
             <div class="rule"></div>
             <p class="lead" style="margin-bottom:0.9rem;">La Roskourt'Vite est une association entièrement bénévole. Les participations sont gratuites pour les étudiants, et nous souhaitons que cela reste ainsi.</p>
             <p class="lead" style="margin-bottom:0.9rem;">Pour organiser des événements de qualité et financer nos projets, nous comptons sur des partenaires qui partagent nos valeurs : sport accessible, ancrage dans le territoire, convivialité.</p>
-            <p class="lead">Si vous souhaitez nous soutenir — que ce soit financièrement, en nature ou via un partenariat — nous serions ravis d'en discuter avec vous.</p>
+            <p class="lead">Si vous souhaitez nous soutenir, financièrement, en nature ou via un partenariat, nous serions ravis d'en discuter avec vous.</p>
             <div class="contact-card">
               <h3>Devenir partenaire</h3>
               <p>Vous avez un projet de partenariat ou souhaitez simplement en savoir plus ? Contactez-nous via le formulaire, nous vous répondrons rapidement.</p>
@@ -770,10 +699,10 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
   </div>
 
   <div class="partners-strip"><div style="max-width:1080px;margin:0 auto;"><p class="p-label">Nos partenaires</p><div class="p-logos"><div class="p-item"><img src="logo_roscoff.png" alt="Ville de Roscoff" onerror="this.parentElement.style.display='none'"><span>Ville de Roscoff</span></div><div class="p-item"><img src="logo_sorbonne.png" alt="Sorbonne Université" onerror="this.parentElement.style.display='none'"><span>Sorbonne Université</span></div><div class="p-item"><img src="logo_sbr.png" alt="Station Biologique de Roscoff" onerror="this.parentElement.style.display='none'"><span>Station Biologique</span></div><div class="p-item"><img src="logo_cvec.png" alt="CVEC" onerror="this.parentElement.style.display='none'"><span>CVEC</span></div><div class="p-item"><img src="logo_raidlight.png" alt="Raidlight" onerror="this.parentElement.style.display='none'"><span>Raidlight</span></div></div></div></div>
-  <footer role="contentinfo"><div class="ft-inner"><div class="ft-top"><div class="ft-brand"><div class="name">La <em>Roskourt'Vite</em></div><p>Association loi 1901 fondée en 2026 à la Station biologique de Roscoff — CNRS / Sorbonne Université.<br>RNA : W293009016</p></div><div class="ft-col"><h4>Navigation</h4><ul><li><button onclick="goPage('accueil')">Accueil</button></li><li><button onclick="goPage('course')">La Course</button></li><li><button onclick="goPage('asso')">L'Association</button></li><li><button onclick="goPage('contact')">Contact</button></li></ul></div><div class="ft-col"><h4>Légal</h4><ul><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="politique-confidentialite.html">Confidentialité</a></li><li><a href="politique-cookies.html">Cookies</a></li></ul></div></div><div class="ft-bot"><span>© 2026 Association La Roskourt'Vite · Roscoff</span><a href="https://www.instagram.com/roskourtvite" target="_blank" rel="noopener noreferrer" class="ft-ig" aria-label="Instagram @roskourtvite"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>@roskourtvite</a></div></div></footer>
+  <footer role="contentinfo"><div class="ft-inner"><div class="ft-top"><div class="ft-brand"><div class="name">La <em>Roskourt'Vite</em></div><p>Association loi 1901 fondée en 2026 à la Station biologique de Roscoff, CNRS et Sorbonne Université.<br>RNA : W293009016</p></div><div class="ft-col"><h4>Navigation</h4><ul><li><button onclick="goPage('accueil')">Accueil</button></li><li><button onclick="goPage('course')">La Course</button></li><li><button onclick="goPage('asso')">L'Association</button></li><li><button onclick="goPage('contact')">Contact</button></li></ul></div><div class="ft-col"><h4>Légal</h4><ul><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="politique-confidentialite.html">Confidentialité</a></li><li><a href="politique-cookies.html">Cookies</a></li></ul></div></div><div class="ft-bot"><span>© 2026 Association La Roskourt'Vite · Roscoff</span><a href="https://www.instagram.com/roskourtvite" target="_blank" rel="noopener noreferrer" class="ft-ig" aria-label="Instagram @roskourtvite"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>@roskourtvite</a></div></div></footer>
 </div>
 
-<!-- ══ PAGE CONTACT ══ -->
+<!-- ══ CONTACT ══ -->
 <div class="page" id="page-contact">
   <div class="ph">
     <span class="eyebrow" style="color:var(--gold-soft);">Une question ?</span>
@@ -804,10 +733,10 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
             <label class="fl" for="c-objet">Objet <span aria-label="obligatoire">*</span></label>
             <select class="fsel" id="c-objet" name="objet" required aria-required="true">
               <option value="" disabled selected>Choisissez un sujet</option>
-              <option>Remboursement / annulation 2026</option>
+              <option>Remboursement, annulation 2026</option>
               <option>Inscription 2027</option>
               <option>Bénévolat</option>
-              <option>Partenariat / Mécénat</option>
+              <option>Partenariat, mécénat</option>
               <option>Presse</option>
               <option>Autre</option>
             </select>
@@ -829,20 +758,18 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
       </div>
     </div>
   </section>
-  <footer role="contentinfo"><div class="ft-inner"><div class="ft-top"><div class="ft-brand"><div class="name">La <em>Roskourt'Vite</em></div><p>Association loi 1901 fondée en 2026 à la Station biologique de Roscoff — CNRS / Sorbonne Université.<br>RNA : W293009016</p></div><div class="ft-col"><h4>Navigation</h4><ul><li><button onclick="goPage('accueil')">Accueil</button></li><li><button onclick="goPage('course')">La Course</button></li><li><button onclick="goPage('asso')">L'Association</button></li><li><button onclick="goPage('contact')">Contact</button></li></ul></div><div class="ft-col"><h4>Légal</h4><ul><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="politique-confidentialite.html">Confidentialité</a></li><li><a href="politique-cookies.html">Cookies</a></li></ul></div></div><div class="ft-bot"><span>© 2026 Association La Roskourt'Vite · Roscoff</span><a href="https://www.instagram.com/roskourtvite" target="_blank" rel="noopener noreferrer" class="ft-ig" aria-label="Instagram @roskourtvite"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>@roskourtvite</a></div></div></footer>
+  <footer role="contentinfo"><div class="ft-inner"><div class="ft-top"><div class="ft-brand"><div class="name">La <em>Roskourt'Vite</em></div><p>Association loi 1901 fondée en 2026 à la Station biologique de Roscoff, CNRS et Sorbonne Université.<br>RNA : W293009016</p></div><div class="ft-col"><h4>Navigation</h4><ul><li><button onclick="goPage('accueil')">Accueil</button></li><li><button onclick="goPage('course')">La Course</button></li><li><button onclick="goPage('asso')">L'Association</button></li><li><button onclick="goPage('contact')">Contact</button></li></ul></div><div class="ft-col"><h4>Légal</h4><ul><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="politique-confidentialite.html">Confidentialité</a></li><li><a href="politique-cookies.html">Cookies</a></li></ul></div></div><div class="ft-bot"><span>© 2026 Association La Roskourt'Vite · Roscoff</span><a href="https://www.instagram.com/roskourtvite" target="_blank" rel="noopener noreferrer" class="ft-ig" aria-label="Instagram @roskourtvite"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>@roskourtvite</a></div></div></footer>
 </div>
 
-<!-- BTT -->
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-/* ── COUNTDOWN ── */
 function tick() {
   var t = new Date('2027-06-12T09:00:00') - new Date();
   if (t <= 0) { ['cd-j','cd-h','cd-m','cd-s'].forEach(i => { var el=document.getElementById(i); if(el) el.textContent='00'; }); return; }
   var pad = n => String(n).padStart(2,'0');
-  var el; 
+  var el;
   if(el=document.getElementById('cd-j')) el.textContent=pad(Math.floor(t/86400000));
   if(el=document.getElementById('cd-h')) el.textContent=pad(Math.floor((t%86400000)/3600000));
   if(el=document.getElementById('cd-m')) el.textContent=pad(Math.floor((t%3600000)/60000));
@@ -850,7 +777,6 @@ function tick() {
 }
 tick(); setInterval(tick, 1000);
 
-/* ── PAGES ── */
 function goPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-btn,.mob-btn').forEach(b => b.classList.remove('active'));
@@ -859,7 +785,6 @@ function goPage(id) {
     if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'"+id+"'")) b.classList.add('active');
   });
   window.scrollTo({ top:0, behavior:'instant' });
-  // reset tabs
   var pg = document.getElementById('page-' + id);
   pg.querySelectorAll('.tab').forEach(t => { t.classList.remove('on'); t.setAttribute('aria-selected','false'); });
   pg.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
@@ -868,11 +793,9 @@ function goPage(id) {
   if (fp) fp.classList.add('on');
   setTimeout(() => {
     pg.querySelectorAll('.rv:not(.in)').forEach(el => obs.observe(el));
-    if (id === 'course' && !window.mapOk) setTimeout(initMap, 180);
   }, 60);
 }
 
-/* ── TABS ── */
 function goTab(id) {
   var pg = document.querySelector('.page.active');
   if (!pg) return;
@@ -884,11 +807,10 @@ function goTab(id) {
   if (panel) {
     panel.classList.add('on');
     panel.querySelectorAll('.rv:not(.in)').forEach(el => obs.observe(el));
-    if (id === 'format' && !window.mapOk) setTimeout(initMap, 180);
+    if (id === 'edition2026' && !window.mapOk) setTimeout(initMap, 180);
   }
 }
 
-/* ── MENU ── */
 function toggleMenu() {
   var m = document.getElementById('mob-nav');
   var b = document.querySelector('.burger');
@@ -896,27 +818,22 @@ function toggleMenu() {
   b.setAttribute('aria-expanded', open);
 }
 
-/* ── BTT ── */
 window.addEventListener('scroll', () => document.getElementById('btt').classList.toggle('show', window.scrollY > 280));
 
-/* ── REVEAL ── */
 var obs = new IntersectionObserver(
   es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } }),
   { threshold:0.06, rootMargin:'0px 0px -35px 0px' }
 );
 document.querySelectorAll('.rv').forEach(el => obs.observe(el));
 
-/* ── COOKIES ── */
 function setCk(v) {
   localStorage.setItem('rv_ck', v);
   document.getElementById('cookie-bar').style.display = 'none';
-  if (v === 'yes' && !window.mapOk && document.getElementById('page-course').classList.contains('active')) initMap();
 }
 window.addEventListener('DOMContentLoaded', () => {
   if (!localStorage.getItem('rv_ck')) setTimeout(() => { document.getElementById('cookie-bar').style.display = 'flex'; }, 900);
 });
 
-/* ── FORM ── */
 var cform = document.getElementById('cform');
 if (cform) {
   cform.addEventListener('submit', async e => {
@@ -926,12 +843,11 @@ if (cform) {
     try {
       var r = await fetch(cform.action, { method:'POST', body:new FormData(cform), headers:{'Accept':'application/json'} });
       if (r.ok) { cform.reset(); document.getElementById('fsuc').classList.add('on'); btn.style.display='none'; }
-      else { btn.textContent = 'Erreur — réessayez'; btn.disabled = false; }
-    } catch { btn.textContent = 'Erreur — réessayez'; btn.disabled = false; }
+      else { btn.textContent = 'Erreur, réessayez'; btn.disabled = false; }
+    } catch { btn.textContent = 'Erreur, réessayez'; btn.disabled = false; }
   });
 }
 
-/* ── MAP ── */
 window.mapOk = false;
 var mrkr = null;
 
@@ -945,16 +861,17 @@ function initMap() {
 
   var coords=[[48.71103,-3.998765],[48.711821,-3.998978],[48.712271,-3.999128],[48.712214,-3.999532],[48.712221,-4.001634],[48.715072,-4.004955],[48.715461,-4.005353],[48.715558,-4.005562],[48.715324,-4.007013],[48.715906,-4.007464],[48.717208,-4.008419],[48.717976,-4.009025],[48.718821,-4.009893],[48.71958,-4.010352],[48.719572,-4.00944],[48.71992,-4.009335],[48.720699,-4.008737],[48.720828,-4.008087],[48.721448,-4.007809],[48.721683,-4.007165],[48.721894,-4.006791],[48.722073,-4.006375],[48.722374,-4.005437],[48.722876,-4.005032],[48.724012,-4.004354],[48.724924,-4.004346],[48.725555,-4.004118],[48.725685,-4.00334],[48.725861,-4.0027],[48.725912,-4.001586],[48.726206,-4.001216],[48.726714,-4.001826],[48.726102,-4.002512],[48.72594,-4.003435],[48.725825,-4.004036],[48.725828,-4.004809],[48.725947,-4.005402],[48.726688,-4.006682],[48.725739,-4.006385],[48.725668,-4.006501],[48.72527,-4.006577],[48.724924,-4.006694],[48.724431,-4.006751],[48.723772,-4.006875],[48.723201,-4.006967],[48.723163,-4.007437],[48.722024,-4.008201],[48.720849,-4.009294],[48.719851,-4.01012],[48.719392,-4.010391],[48.718335,-4.011111],[48.718019,-4.011053],[48.717106,-4.010777],[48.716135,-4.011073],[48.715733,-4.011115],[48.715442,-4.01156],[48.71363,-4.013266],[48.71263,-4.014787],[48.711593,-4.014156],[48.714012,-4.008338],[48.714813,-4.0063],[48.715391,-4.00536],[48.714927,-4.004857],[48.711525,-4.000768],[48.712298,-3.999284],[48.712094,-3.999061],[48.71126,-3.999001]];
   var eles=[6.7,6.7,6.0,5.4,2.5,2.2,2.7,2.9,4.1,4.9,5.7,5.9,5.8,5.6,5.1,4.7,3.4,2.6,1.6,1.2,1.0,0.7,0.4,1.0,2.0,2.5,2.9,3.2,3.5,4.0,4.2,4.6,5.0,5.1,5.1,5.2,5.0,4.2,4.3,4.4,4.6,4.8,4.7,4.4,4.2,3.9,3.0,3.8,4.8,5.1,5.3,5.2,4.9,4.8,4.8,4.8,4.7,4.5,3.7,2.1,1.8,1.5,1.2,3.5,5.5,5.5,5.5];
-  var dists=[0.0,0.089,0.14,0.17,0.324,0.724,0.776,0.795,0.905,0.978,1.139,1.235,1.349,1.44,1.507,1.546,1.643,1.693,1.765,1.819,1.855,1.891,1.968,2.031,2.167,2.268,2.34,2.399,2.45,2.532,2.574,2.646,2.731,2.801,2.847,2.904,2.949,3.074,3.182,3.194,3.239,3.278,3.333,3.407,3.471,3.506,3.644,3.797,3.923,3.978,4.107,4.142,4.246,4.356,4.401,4.447,4.684,4.842,4.966,5.471,5.645,5.739,5.802,6.285,6.424,6.452,6.545];
+  var dists=[0.0,0.089,0.14,0.17,0.324,0.724,0.776,0.795,0.905,0.978,1.139,1.235,1.349,1.44,1.507,1.546,1.643,1.693,1.765,1.819,1.855,1.891,1.968,2.031,2.167,2.268,2.34,2.399,2.45,2.532,2.574,2.646,2.731,2.801,2.847,2.904,2.949,3.074,3.182,3.194,3.239,3.278,3.333,3.407,3.471,3.506,3.644,3.797,3.923,3.978,4.107,4.142,4.246,4.356,4.401,4.447,4.684,4.842,4.966,5.471,5.645,5.739,5.802,6.285,6.424,6.452,6.7056];
 
   L.polyline(coords, { color:'#b87d2e', weight:3.5, opacity:0.88 }).addTo(map);
   var pi = L.divIcon({ html:'<div style="background:#b87d2e;width:11px;height:11px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,0.28);"></div>', iconSize:[11,11], iconAnchor:[5.5,5.5], className:'' });
-  L.marker(coords[0], {icon:pi}).addTo(map).bindPopup('<strong>Départ / Arrivée</strong><br>Parking du Laber');
+  L.marker(coords[0], {icon:pi}).addTo(map).bindPopup('<strong>Départ, arrivée</strong><br>Parking du Laber');
   L.marker([48.726708,-4.001825], {icon:pi}).addTo(map).bindPopup('<strong>Pointe de Perharidy</strong>');
   var ci = L.divIcon({ html:'<div style="background:#1d3557;width:9px;height:9px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,0.3);"></div>', iconSize:[9,9], iconAnchor:[4.5,4.5], className:'' });
   mrkr = L.marker(coords[0], {icon:ci, zIndexOffset:999}).addTo(map);
 
   var cv = document.getElementById('elevation-chart');
+  if (!cv) return;
   var W = cv.offsetWidth || 680, H = 105, dpr = window.devicePixelRatio || 1;
   cv.width = W*dpr; cv.height = H*dpr; cv.style.width = W+'px'; cv.style.height = H+'px';
   var ctx = cv.getContext('2d'); ctx.scale(dpr, dpr);
@@ -999,7 +916,7 @@ function initMap() {
     draw(i);
     var ln=document.getElementById('elev-line'); ln.style.display='block'; ln.style.left=hx+'px';
     var tp=document.getElementById('elev-tip'); tp.style.display='block'; tp.style.left=hx+'px';
-    tp.textContent=dists[i].toFixed(2)+' km · '+eles[i]+' m';
+    tp.textContent=dists[i].toFixed(2)+' km, '+eles[i]+' m';
     if(mrkr) mrkr.setLatLng(coords[i]);
   }
   function rst() {
