@@ -70,7 +70,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(247,2
 .hero { background:var(--blue); padding:5rem 2rem 4rem; text-align:center; position:relative; overflow:hidden; }
 .hero::after { content:''; position:absolute; bottom:0; left:0; right:0; height:80px; background:linear-gradient(to bottom, transparent, var(--sand)); pointer-events:none; }
 .hero-inner { position:relative; z-index:1; max-width:700px; margin:0 auto; }
-.hero-logo { width:min(150px, 34vw); margin-bottom:1.5rem; display:block; margin-left:auto; margin-right:auto; }
+.hero-logo { width:min(150px, 34vw); margin-bottom:1.5rem; display:block; margin-left:auto; margin-right:auto; filter:brightness(0) invert(1); opacity:0.95; }
 .hero-eyebrow { font-size:0.75rem; letter-spacing:0.38em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:0.9rem; }
 .hero-title { font-family:'Playfair Display', serif; font-size:clamp(2.2rem, 7vw, 4.2rem); font-weight:900; color:#fff; line-height:1.06; }
 .hero-title .gold { color:var(--gold-soft); }
@@ -262,7 +262,7 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
 <a href="#main" class="skip">Aller au contenu</a>
 
 <div id="cookie-bar" role="dialog" aria-label="Cookies">
-  <p>Ce site utilise des cookies techniques nécessaires (formulaire de contact) et, si vous l'acceptez, des cookies liés à la carte OpenStreetMap. Aucun tracking ni publicité. <a href="politique-cookies.html">En savoir plus</a>.</p>
+  <p>Ce site utilise des cookies techniques nécessaires (formulaire de contact) et, si vous l'acceptez, des cookies liés à la carte OpenStreetMap. Aucun tracking, aucune publicité. Votre choix est conservé 13 mois. <a href="politique-cookies.html">En savoir plus</a>.</p>
   <div class="ck-btns">
     <button class="ck-btn no" onclick="setCk('no')">Refuser</button>
     <button class="ck-btn yes" onclick="setCk('yes')">Accepter</button>
@@ -475,8 +475,8 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
             <thead><tr><th style="text-align:left;padding:0.55rem 0.4rem;font-size:0.78rem;font-weight:600;color:var(--text-muted);">Public</th><th style="padding:0.55rem 0.4rem;font-size:0.78rem;font-weight:600;color:var(--text-muted);">Tarif</th></tr></thead>
             <tbody>
               <tr><td>Étudiants, toute nationalité, sur justificatif</td><td class="free">Gratuit</td></tr>
-              <tr><td>Personnel de la Station Biologique</td><td>3 €</td></tr>
-              <tr><td>Autres participants</td><td>5 €</td></tr>
+              <tr><td>Personnel de la Station Biologique</td><td>6 €</td></tr>
+              <tr><td>Autres participants</td><td>10 €</td></tr>
             </tbody>
           </table>
           <p style="font-size:0.78rem;color:var(--text-muted);margin-top:1rem;">Inscription en ligne uniquement, via une plateforme dédiée. Jauge limitée à 200 participants.</p>
