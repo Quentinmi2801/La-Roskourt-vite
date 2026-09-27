@@ -68,7 +68,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(247,2
 .page { display:none; padding-top:66px; min-height:100vh; }
 .page.active { display:block; }
 
-.hero { background:linear-gradient(rgba(43,58,66,0.82), rgba(43,58,66,0.9)), url('roscoff_port.jpeg') center 65%/cover no-repeat; padding:5rem 2rem 4rem; text-align:center; position:relative; overflow:hidden; }
+.hero { background:linear-gradient(rgba(43,58,66,0.55), rgba(43,58,66,0.68)), url('roscoff_port.jpeg') center 65%/cover no-repeat; padding:5rem 2rem 4rem; text-align:center; position:relative; overflow:hidden; }
 .hero::after { content:''; position:absolute; bottom:0; left:0; right:0; height:80px; background:linear-gradient(to bottom, transparent, var(--sand)); pointer-events:none; }
 .hero-inner { position:relative; z-index:1; max-width:700px; margin:0 auto; }
 .hero-logo { width:min(150px, 34vw); margin-bottom:1.5rem; display:block; margin-left:auto; margin-right:auto; filter:brightness(0) invert(1); opacity:0.95; }
@@ -99,6 +99,8 @@ nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(247,2
 .stats-grid { max-width:700px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.08); border-radius:8px; overflow:hidden; }
 .photo-strip { position:relative; width:100%; aspect-ratio:21/9; overflow:hidden; background:var(--cream); }
 .photo-strip img { width:100%; height:100%; object-fit:cover; display:block; }
+.photo-strip-contain { background:var(--blue); }
+.photo-strip-contain img { object-fit:contain; }
 .photo-strip-cap { position:absolute; bottom:0; left:0; right:0; padding:1rem 1.5rem; background:linear-gradient(to top, rgba(26,29,31,0.7), transparent); color:#fff; font-size:0.8rem; }
 @media (max-width:600px) { .photo-strip { aspect-ratio:4/5; } }
 .stat { background:rgba(255,255,255,0.04); padding:1.6rem 1rem; text-align:center; }
@@ -330,11 +332,6 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
     </div>
   </div>
 
-  <div class="photo-strip rv">
-    <img src="roskourtvite_depart.jpeg" alt="Échauffement des coureurs sous l'arche de départ Raidlight, Station biologique de Roscoff" loading="lazy">
-    <p class="photo-strip-cap">Échauffement avant le départ, Station biologique de Roscoff</p>
-  </div>
-
   <section class="section section-white">
     <div class="wrap-sm rv">
       <span class="eyebrow">Le principe</span>
@@ -522,6 +519,10 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
         <span class="eyebrow">Historique</span>
         <h2 class="title">Édition 2026, annulée</h2>
         <div class="rule"></div>
+        <div class="rv" style="margin-bottom:2rem;text-align:center;">
+          <img src="affiche_2026.png" alt="Affiche officielle de la Roskourt'Vite, édition 2026" style="max-width:340px;width:100%;border-radius:8px;border:1px solid var(--border);box-shadow:var(--shadow);">
+          <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.6rem;">Affiche officielle de l'édition 2026</p>
+        </div>
         <div style="background:var(--cream);border:1px solid var(--border);border-radius:9px;padding:2rem;" class="rv">
           <p style="font-size:0.95rem;color:var(--text-muted);line-height:1.85;margin-bottom:0.85rem;font-weight:300;">La première édition de la Roskourt'Vite, prévue le 6 juin 2026, co-portée avec l'<strong>ALBM</strong> (Association des Licences BIO-MAD) et soutenue par Sorbonne Université via la CVEC, a dû être annulée à trois jours de la course.</p>
           <p style="font-size:0.95rem;color:var(--text-muted);line-height:1.85;margin-bottom:0.85rem;font-weight:300;">Des difficultés administratives de dernière minute, doublées de conditions météorologiques dangereuses sur le parcours côtier, nous ont contraints à prendre cette décision. 150 personnes étaient inscrites.</p>
@@ -593,7 +594,7 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
     </section>
     <div class="photo-strip rv">
       <img src="roscoff_sunset.jpeg" alt="Lever de soleil sur la côte de Roscoff, avec le phare en arrière-plan" loading="lazy">
-      <p class="photo-strip-cap">La côte de Roscoff, notre terrain de jeu</p>
+      <p class="photo-strip-cap">Roscoff, un magnifique terrain de jeu</p>
     </div>
   </div>
 
@@ -631,6 +632,10 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
         </div>
       </div>
     </section>
+    <div class="photo-strip photo-strip-contain rv">
+      <img src="roskourtvite_depart.jpeg" alt="Essais du matériel de course, arche de départ Raidlight, quelques jours avant l'édition 2026" loading="lazy">
+      <p class="photo-strip-cap">Essais du matériel avant la course, quelques jours avant l'édition 2026</p>
+    </div>
   </div>
 
   <!-- Presse -->
