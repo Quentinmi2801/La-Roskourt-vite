@@ -182,7 +182,14 @@ h2.title { font-family:'Fraunces', serif; font-size:clamp(1.5rem, 3.5vw, 2.2rem)
 .press-x { font-size:0.84rem; color:var(--text-muted); line-height:1.7; }
 .press-link { display:inline-block; margin-top:0.9rem; font-size:0.8rem; font-weight:600; color:var(--gold); }
 
+.gallery-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:1rem; }
+.gallery-item { margin:0; border-radius:9px; overflow:hidden; border:1px solid var(--border); background:var(--cream); position:relative; }
+.gallery-item img { width:100%; height:100%; object-fit:cover; display:block; aspect-ratio:4/3; }
+.gallery-item-wide { grid-column:1 / -1; }
+.gallery-item-wide img { aspect-ratio:16/9; }
+.gallery-item figcaption { padding:0.7rem 1rem; font-size:0.78rem; color:var(--text-muted); background:var(--white); }
 .gal-empty { border:1.5px dashed var(--border); border-radius:9px; padding:4rem 2rem; text-align:center; margin-top:1.75rem; }
+@media (max-width:600px) { .gallery-grid { grid-template-columns:1fr; } }
 .gal-empty p { font-size:0.88rem; color:var(--text-muted); margin-top:0.4rem; }
 
 .contact-card { background:var(--white); border:1px solid var(--border); border-radius:9px; padding:2.25rem; margin-top:2rem; max-width:540px; }
@@ -632,10 +639,6 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
         </div>
       </div>
     </section>
-    <div class="photo-strip photo-strip-contain rv">
-      <img src="roskourtvite_depart.jpeg" alt="Essais du matériel de course, arche de départ Raidlight, quelques jours avant l'édition 2026" loading="lazy">
-      <p class="photo-strip-cap">Essais du matériel avant la course, quelques jours avant l'édition 2026</p>
-    </div>
   </div>
 
   <!-- Presse -->
@@ -670,7 +673,13 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
         <span class="eyebrow">Photos</span>
         <h2 class="title">Galerie</h2>
         <div class="rule"></div>
-        <div class="gal-empty rv"><p style="font-size:0.95rem;font-weight:500;color:var(--text);">Photos à venir</p><p>Les premières photos de l'association seront publiées ici prochainement.</p></div>
+        <div class="gallery-grid rv">
+          <figure class="gallery-item gallery-item-wide">
+            <img src="roskourtvite_depart.jpeg" alt="Essais du matériel de course sous l'arche de départ Raidlight, quelques jours avant l'édition 2026" loading="lazy">
+            <figcaption>Essais du matériel avant la course, quelques jours avant l'édition 2026</figcaption>
+          </figure>
+        </div>
+        <div class="gal-empty rv" style="margin-top:1.5rem;"><p style="font-size:0.95rem;font-weight:500;color:var(--text);">D'autres photos à venir</p><p>Les prochaines photos de l'association seront publiées ici au fil du temps.</p></div>
       </div>
     </section>
   </div>
