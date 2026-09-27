@@ -68,7 +68,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(247,2
 .page { display:none; padding-top:66px; min-height:100vh; }
 .page.active { display:block; }
 
-.hero { background:var(--blue); padding:5rem 2rem 4rem; text-align:center; position:relative; overflow:hidden; }
+.hero { background:linear-gradient(rgba(43,58,66,0.82), rgba(43,58,66,0.9)), url('roscoff_port.jpeg') center 65%/cover no-repeat; padding:5rem 2rem 4rem; text-align:center; position:relative; overflow:hidden; }
 .hero::after { content:''; position:absolute; bottom:0; left:0; right:0; height:80px; background:linear-gradient(to bottom, transparent, var(--sand)); pointer-events:none; }
 .hero-inner { position:relative; z-index:1; max-width:700px; margin:0 auto; }
 .hero-logo { width:min(150px, 34vw); margin-bottom:1.5rem; display:block; margin-left:auto; margin-right:auto; filter:brightness(0) invert(1); opacity:0.95; }
@@ -97,6 +97,10 @@ nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(247,2
 
 .stats { background:var(--blue); padding:0 2rem 3rem; }
 .stats-grid { max-width:700px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.08); border-radius:8px; overflow:hidden; }
+.photo-strip { position:relative; width:100%; aspect-ratio:21/9; overflow:hidden; background:var(--cream); }
+.photo-strip img { width:100%; height:100%; object-fit:cover; display:block; }
+.photo-strip-cap { position:absolute; bottom:0; left:0; right:0; padding:1rem 1.5rem; background:linear-gradient(to top, rgba(26,29,31,0.7), transparent); color:#fff; font-size:0.8rem; }
+@media (max-width:600px) { .photo-strip { aspect-ratio:4/5; } }
 .stat { background:rgba(255,255,255,0.04); padding:1.6rem 1rem; text-align:center; }
 .stat-n { font-family:'Fraunces', serif; font-size:1.75rem; font-weight:900; color:var(--gold-soft); display:block; line-height:1; }
 .stat-l { font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.42); margin-top:0.35rem; display:block; }
@@ -324,6 +328,11 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
       <div class="stat"><span class="stat-n">1h</span><span class="stat-l">par tour</span></div>
       <div class="stat"><span class="stat-n">24h</span><span class="stat-l">durée maximum</span></div>
     </div>
+  </div>
+
+  <div class="photo-strip rv">
+    <img src="roskourtvite_depart.jpeg" alt="Échauffement des coureurs sous l'arche de départ Raidlight, Station biologique de Roscoff" loading="lazy">
+    <p class="photo-strip-cap">Échauffement avant le départ, Station biologique de Roscoff</p>
   </div>
 
   <section class="section section-white">
@@ -582,6 +591,10 @@ footer { background:#14202e; color:rgba(255,255,255,0.6); padding:2.75rem 2rem 2
         </div>
       </div>
     </section>
+    <div class="photo-strip rv">
+      <img src="roscoff_sunset.jpeg" alt="Lever de soleil sur la côte de Roscoff, avec le phare en arrière-plan" loading="lazy">
+      <p class="photo-strip-cap">La côte de Roscoff, notre terrain de jeu</p>
+    </div>
   </div>
 
   <!-- Projets -->
